@@ -1,7 +1,6 @@
 import * as Jimp from 'jimp';
 import * as _ from 'lodash';
-import {IFile as pbIFile, IImage as pbIImage, File as pbFile, Image as pbImage} from './pbuff';
-import {DLBoK} from './pixels_generated';
+import {IFile, IImage, File, Image} from './pbuff';
 // const BSON = require('bson');
 // const msgpak = require('msgpack5');
 // const cbor = require('cbor');
@@ -297,27 +296,13 @@ async function main() {
     // const enc = new cbor.Encoder({highWaterMark: 1 << 30});
     // enc.write(output);
     // fs.writeFileSync("./int_output.cbor", enc.read());
-    let builder = new flatbuffers.Builder(0);
-    let images = <number[]>[];
-    output.map((x, i) => {
-        return [builder.createString(x[0]), x[1], DLBoK.Image.createColorsVector(builder, x[1])];
-    }).map((x, i, v) => {
-        DLBoK.Image.startImage(builder);
-        DLBoK.Image.addColors(builder, v);
-        DLBoK.Image.addPath(builder, x[0]);
-        images.push(DLBoK.Image.endImage(builder));
-    });
-    DLBoK.File.startFile(builder);
-    images.forEach((x) => {
-        DLBoK.File.addImgs(builder, x);
-    });
-    builder.finish(DLBoK.File.endFile(builder));
-    fs.writeFileSync("int_out.fb", builder.asUint8Array());
 
+
+    // NTS: File is a container for all images and refers to image index file...
     fs.writeFileSync(
         "./int_output.pb",
-        pbFile
-            .encode(pbFile.create(<pbIFile>{imgs: output.map((x) => pbImage.create(<pbIImage>{path: x[0], colors: x[1]}))}))
+        File
+            .encode(File.create(<IFile>{imgs: output.map((x) => Image.create(<IImage>{path: x[0], colors: x[1]}))}))
             .finish());
 
 }
