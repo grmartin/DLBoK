@@ -1,0 +1,13 @@
+// Generated from pixels.proto
+
+namespace DLBoK;
+
+table File {
+  imgs:[Image];
+}
+
+table Image {
+  path:string;
+  colors:[uint];
+}
+

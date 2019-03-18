@@ -13,6 +13,7 @@
     "@types/bson": "1.0.11",
     "@types/lodash": "^4.14.120",
     "@types/node": "10.12.0",
+    "flatbuffers": "^1.10.2",
     "jimp": "^0.6.0",
     "lodash": "^4.17.11",
     "protobufjs": "6.8.8",

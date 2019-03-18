@@ -1,11 +1,14 @@
 import * as Jimp from 'jimp';
 import * as _ from 'lodash';
-import {IFile, IImage, File, Image} from './pbuff';
+import {IFile as pbIFile, IImage as pbIImage, File as pbFile, Image as pbImage} from './pbuff';
+import {DLBoK} from './pixels_generated';
 // const BSON = require('bson');
 // const msgpak = require('msgpack5');
 // const cbor = require('cbor');
 const fs = require('fs');
 const path = require('path');
+
+const flatbuffers = require('flatbuffers').flatbuffers;
 
 interface RGB {
     r: number;
@@ -46,20 +49,20 @@ async function processFile(file: string): Promise<[string, number[]]> {
 }
 
 async function main() {
-    const files = await <Promise<string[]>>new Promise((resolve, reject) => {
-        const basePath = path.join(__dirname, 'trim/content/14/jpeg/');
-
-        fs.readdir(basePath, function (err: NodeJS.ErrnoException, items: string[]) {
-            if (!_.isNil(err)) {
-                reject(err);
-            } else {
-                resolve(items.map((x) => path.join(basePath, x)));
-            }
-        });
-    });
-    // const files: string[] = [
-    //     "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_001r_LO.jpg",
-    //     "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_001v_LO.jpg",
+    // const files = await <Promise<string[]>>new Promise((resolve, reject) => {
+    //     const basePath = path.join(__dirname, 'trim/content/14/jpeg/');
+    //
+    //     fs.readdir(basePath, function (err: NodeJS.ErrnoException, items: string[]) {
+    //         if (!_.isNil(err)) {
+    //             reject(err);
+    //         } else {
+    //             resolve(items.map((x) => path.join(basePath, x)));
+    //         }
+    //     });
+    // });
+    const files: string[] = [
+        "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_001r_LO.jpg",
+        "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_001v_LO.jpg",
     //     // "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_002r_LO.jpg",
     //     // "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_002v_LO.jpg",
     //     // "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_003r_LO.jpg",
@@ -282,7 +285,7 @@ async function main() {
     //     // "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_337v_LO.jpg",
     //     // "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_338r_LO.jpg",
     //     // "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_338v_LO.jpg",
-    //     "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_339r_LO.jpg"];
+         "/Volumes/Data/Play/DLBoK/images/trim/content/14/jpeg/MS58_339r_LO.jpg"];
 
     const output = await Promise.all(files.map(async (name) => await processFile(name)));
 
@@ -294,11 +297,27 @@ async function main() {
     // const enc = new cbor.Encoder({highWaterMark: 1 << 30});
     // enc.write(output);
     // fs.writeFileSync("./int_output.cbor", enc.read());
+    let builder = new flatbuffers.Builder(0);
+    let images = <number[]>[];
+    output.map((x, i) => {
+        return [builder.createString(x[0]), x[1], DLBoK.Image.createColorsVector(builder, x[1])];
+    }).map((x, i, v) => {
+        DLBoK.Image.startImage(builder);
+        DLBoK.Image.addColors(builder, v);
+        DLBoK.Image.addPath(builder, x[0]);
+        images.push(DLBoK.Image.endImage(builder));
+    });
+    DLBoK.File.startFile(builder);
+    images.forEach((x) => {
+        DLBoK.File.addImgs(builder, x);
+    });
+    builder.finish(DLBoK.File.endFile(builder));
+    fs.writeFileSync("int_out.fb", builder.asUint8Array());
 
     fs.writeFileSync(
         "./int_output.pb",
-        File
-            .encode(File.create(<IFile>{imgs: output.map((x) => Image.create(<IImage>{path: x[0], colors: x[1]}))}))
+        pbFile
+            .encode(pbFile.create(<pbIFile>{imgs: output.map((x) => pbImage.create(<pbIImage>{path: x[0], colors: x[1]}))}))
             .finish());
 
 }
