@@ -473,3 +473,5 @@ ASALocalRun/
 *.js
 examples/*.d.ts
 Research
+*.pb
+*.bz2
