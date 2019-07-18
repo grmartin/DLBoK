@@ -12,7 +12,7 @@
   "dependencies": {
     "arangojs": "^6.10.0",
     "jimp": "^0.6.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.14",
     "protobufjs": "^6.8.8"
   },
   "devDependencies": {
