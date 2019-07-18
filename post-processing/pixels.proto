@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message File {
+    string rootPath = 1;
+    repeated Image imgs = 2;
+}
+
+message Size {
+    uint32 width = 1;
+    uint32 height = 2;
+}
+
+message Image {
+    string path = 1;
+
+    Size size = 2;
+
+    repeated uint32 colors = 3;
+}

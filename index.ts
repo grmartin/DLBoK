@@ -40,4 +40,4 @@ paths.forEach( (pathset, idx, all) => {
     console.log("Completed "+__dirname+ '/' + pathset.relative+".");
 });
 
-console.log("Donexxs");
+console.log("Done");

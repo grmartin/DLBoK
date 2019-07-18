@@ -475,3 +475,4 @@ examples/*.d.ts
 Research
 *.pb
 *.bz2
+*.txz
