@@ -15,5 +15,10 @@ message Image {
 
     Size size = 2;
 
-    repeated uint32 colors = 3;
+    repeated ColorData colors = 3;
+}
+
+message ColorData {
+    uint32 colorValue = 1;
+    uint64 instanceCount = 2;
 }

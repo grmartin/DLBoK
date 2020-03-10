@@ -201,7 +201,7 @@ export interface IImage {
     size?: (ISize|null);
 
     /** Image colors */
-    colors?: (number[]|null);
+    colors?: (IColorData[]|null);
 }
 
 /** Represents an Image. */
@@ -220,7 +220,7 @@ export class Image implements IImage {
     public size?: (ISize|null);
 
     /** Image colors. */
-    public colors: number[];
+    public colors: IColorData[];
 
     /**
      * Creates a new Image instance using the specified properties.
@@ -288,6 +288,102 @@ export class Image implements IImage {
 
     /**
      * Converts this Image to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a ColorData. */
+export interface IColorData {
+
+    /** ColorData colorValue */
+    colorValue?: (number|null);
+
+    /** ColorData instanceCount */
+    instanceCount?: (number|Long|null);
+}
+
+/** Represents a ColorData. */
+export class ColorData implements IColorData {
+
+    /**
+     * Constructs a new ColorData.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IColorData);
+
+    /** ColorData colorValue. */
+    public colorValue: number;
+
+    /** ColorData instanceCount. */
+    public instanceCount: (number|Long);
+
+    /**
+     * Creates a new ColorData instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ColorData instance
+     */
+    public static create(properties?: IColorData): ColorData;
+
+    /**
+     * Encodes the specified ColorData message. Does not implicitly {@link ColorData.verify|verify} messages.
+     * @param message ColorData message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IColorData, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ColorData message, length delimited. Does not implicitly {@link ColorData.verify|verify} messages.
+     * @param message ColorData message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IColorData, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ColorData message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ColorData
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ColorData;
+
+    /**
+     * Decodes a ColorData message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ColorData
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ColorData;
+
+    /**
+     * Verifies a ColorData message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ColorData message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ColorData
+     */
+    public static fromObject(object: { [k: string]: any }): ColorData;
+
+    /**
+     * Creates a plain object from a ColorData message. Also converts values to other types if specified.
+     * @param message ColorData
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ColorData, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ColorData to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

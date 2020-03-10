@@ -1,7 +1,7 @@
 import * as Jimp from 'jimp';
 import * as _ from 'lodash';
 import {Paths} from './shared/paths';
-import {File, IFile, IImage, Image, ISize} from './pbuff';
+import {File, IColorData, IFile, IImage, Image, ISize} from './pbuff';
 import {ChunkSet} from './shared/chunking';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -37,7 +37,7 @@ async function procSet(set: ChunkSet<string>): Promise<void> {
     });
 }
 
-async function processFile(prefix: string, file: string): Promise<[string, number, number, number[]]> {
+async function processFile(prefix: string, file: string): Promise<[string, number, number, IColorData[]]> {
     const doubleLoop = (aMax: number, bMax: number, execute: (a: number, b: number) => void) => {
         var a: number;
         var b: number;
@@ -60,11 +60,24 @@ async function processFile(prefix: string, file: string): Promise<[string, numbe
 
     console.log(`${prefix}: Number of pixels: ${pixels.length}`);
 
-    let pixCode = pixels;
+    let pixCode: IColorData[] = [];
 
     if (process_unique) {
-        pixCode = _.uniq(pixCode);
+        pixCode = _.chain(pixels)
+                    .reduce((coll, it) => {
+                        if (coll[it] === undefined) {
+                            coll[it] = 1;
+                        } else {
+                            coll[it] = coll[it] + 1;
+                        }
+                        return coll;
+                    }, <{[k: number]: number}>{})
+                    .map((v: number, k: number) => <IColorData>{colorValue: k, instanceCount: v})
+                    .value() as IColorData[];
+
         console.log(`${prefix}: Unique Number of pixels: ${pixCode.length}`);
+    } else {
+        pixCode = pixels.map((p) => <IColorData>{colorValue: p, instanceCount:1});
     }
 
     return [file, img.getWidth(), img.getHeight(), pixCode];
