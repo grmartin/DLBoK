@@ -4,53 +4,21 @@ import * as _ from 'lodash';
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const settings = require('./settings').arango;
 
 import {IFile, IImage, File, Image, ISize} from './pbuff';
 import {RGB} from './shared/colors';
-interface BasicObject {
-    [key: string]: boolean | number | string | BasicObject;
-}
-
-const settings = {
-    host: 'tcp://127.0.0.1:8529',
-    db: 'DLBoK',
-    user: 'dlbok',
-    pass: 'DLBoK#92911.!'
-};
-
-function createOrReplaceDocumentCollection(db: Database, name: string): Promise<DocumentCollection> {
-    return new Promise<DocumentCollection>(async (res) => {
-        const collection = db.collection(name);
-
-        if (!await collection.exists()) {
-            await collection.create();
-        }
-
-        res(collection);
-    });
-}
-
-function createOrReplaceEdgeCollection(db: Database, name: string): Promise<EdgeCollection> {
-    return new Promise<EdgeCollection>(async (res) => {
-        const collection = db.edgeCollection(name);
-
-        if (!await collection.exists()) {
-            await collection.create();
-        }
-
-        res(collection);
-    });
-}
+import {BasicObject, createOrReplaceDocumentCollection, createOrReplaceEdgeCollection, Schema} from './shared/arango';
+const CollectionNames = Schema.Constants.Collections;
 
 async function main() {
     const db = arango({url: settings.host})
         .useDatabase(settings.db);
     db.useBasicAuth(settings.user, settings.pass);
 
-    const imageCollection = await createOrReplaceDocumentCollection(db, "images");
-    const colorCollection = await createOrReplaceDocumentCollection(db, "colors");
-    //const colorLocations = await createOrReplaceEdgeCollection(db, "colorLocations");
-    const colorAssociations = await createOrReplaceEdgeCollection(db, "colorAssociations");
+    const imageCollection = await createOrReplaceDocumentCollection(db, CollectionNames.Images);
+    const colorCollection = await createOrReplaceDocumentCollection(db, CollectionNames.Colors);
+    const colorAssociations = await createOrReplaceEdgeCollection(db, CollectionNames.ColorAssociations);
 
     const nonResourceForks = Paths.Filters.nonResourceForks;
 
@@ -130,19 +98,9 @@ async function main() {
 
                     writeOne("A");
                     await colorAssociations.import(chunk.map((color) => {
-                        return {_from:`images/${fileRecKey}`, _to:`colors/${color._key}`, count:color[countKey]};
+                        return {_from:`${CollectionNames.Images}/${fileRecKey}`, _to:`${CollectionNames.Colors}/${color._key}`, count:color[countKey]};
                     }));
                 }
-
-                // for (let i = 0; i < colors.length; i += chunkingSize) {
-                //     let chunk = colors.slice(i, i + chunkingSize);
-                //
-                //     let connections = _.map(chunk, (x, idx) => {
-                //         return {offset: i + idx, _from:`images/${fileRecKey}`, _to:`colors/${x._key}`};
-                //     });
-                //     writeOne("E");
-                //     await colorLocations.import(connections, {onDuplicate: 'ignore'});
-                // }
 
                 console.log(` `);
             }

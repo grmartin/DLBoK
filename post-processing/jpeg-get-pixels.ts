@@ -5,8 +5,12 @@ import {IFile, IImage, File, Image, ISize} from './pbuff';
 import {Paths} from './shared/paths';
 const fs = require('fs');
 const path = require('path');
-const vm = require('vm');
 const process_unique = false;
+
+const NUM_CONCUR_SETS = 2;
+const NUM_PER_SET = 2;
+
+const START_TIME = new Date();
 
 async function processFile(prefix: string, file: string): Promise<[string, number, number, number[]]> {
     const doubleLoop = (aMax: number, bMax: number, execute: (a: number, b: number) => void) => {
@@ -56,7 +60,6 @@ function chunkThrottle<T>(array: T[], chunk: number, throttle: number, promiseFu
 }
 
 async function main() {
-    const relativeBase = Paths.getRoot();
     const basePath = Paths.getInputPath();
 
     const files = await (<Promise<string[]>>new Promise((resolve, reject) => {
@@ -72,11 +75,15 @@ async function main() {
         });
     })).then((x) => {
         console.debug('Total Files: ', x.length);
+        console.debug('Total Sets: ',  x.length/NUM_PER_SET);
+        console.debug(`Concurrency: Concurrent Sets: ${NUM_CONCUR_SETS}, Per Set: ${NUM_PER_SET}`);
+        console.debug('Destination: ', Paths.getOutputPath());
+        console.debug('Start: ', START_TIME);
         return x;
     });
 
     async function procSet(set: ChunkSet<string>): Promise<void> {
-        return new Promise<void>((res, rej) => {
+        return new Promise<void>((res) => {
             const actualI = set.idx + 1;
             console.debug('Processing Set: ', actualI);
 
@@ -100,7 +107,12 @@ async function main() {
         });
     }
 
-    chunkThrottle(files, 10, 2, (sets) => Promise.all(sets.map(procSet)));
+    chunkThrottle(files, NUM_PER_SET, NUM_CONCUR_SETS, (sets) => Promise.all(sets.map(procSet)));
 }
+
+process.on('beforeExit', (code) => {
+    console.debug(`Running Time: ${(START_TIME.getMilliseconds()/1000) - (new Date().getMilliseconds()/1000)} secs`);
+    console.debug(`Terminating With Code: ${code}`);
+});
 
 main();

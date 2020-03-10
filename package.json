@@ -13,6 +13,7 @@
     "arangojs": "^6.10.0",
     "jimp": "^0.6.0",
     "lodash": "^4.17.14",
+    "ml-kmeans": "^5.0.0",
     "protobufjs": "^6.8.8"
   },
   "devDependencies": {
