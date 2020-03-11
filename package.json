@@ -11,6 +11,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "arangojs": "^6.10.0",
+    "hsluv": "^0.1.0",
     "jimp": "^0.6.0",
     "lodash": "^4.17.14",
     "ml-kmeans": "^5.0.0",
@@ -19,7 +20,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.120",
     "@types/node": "10.12.0",
-    "jsdoc": "^3.6.2",
+    "jsdoc": "^3.6.3",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2"
   }

@@ -476,3 +476,6 @@ Research
 *.pb
 *.bz2
 *.txz
+*.zip
+*.html
+*.htm
