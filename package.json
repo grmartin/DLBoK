@@ -11,6 +11,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "arangojs": "^6.10.0",
+    "expectation-maximization": "^1.5.0",
     "hsluv": "^0.1.0",
     "jimp": "^0.6.0",
     "lodash": "^4.17.14",
