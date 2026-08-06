@@ -1,28 +1,17 @@
 import {HSLUV, RGB} from './shared/colors';
+import {AccentRole, RoleSelection, selectRoles} from './shared/theme-roles';
+import {auditColorSet} from './shared/theme-audit';
+import {PaletteEntry} from './shared/palette';
 
 const fs = require('fs');
 const path = require('path');
-
-const palette = JSON.parse(fs.readFileSync(`${__dirname}/palette.json`, 'utf8'));
-
-// The raw extracted parchment average (H=60.5 S=23.4 L=75.5 in HSLUV) reads
-// fine printed/IRL but is a bit much as a full-screen background on a
-// monitor: 25% less saturated so it stays "parchment" without feeling heavy,
-// and 10% lighter (of its own original L) so the UI reads airier and lets
-// the accent colors pop rather than sitting "woodsy"/dim against it. This is
-// the single source point for `bg`, so every derived chrome color
-// (bgHighlight, editor/sidebar/statusBar/tab/panel/terminal backgrounds, etc.)
-// inherits both adjustments automatically.
-const rawBgHsl = HSLUV.fromRgb(palette.background);
-const bg: RGB = HSLUV.withLightness(HSLUV.desaturate(palette.background, 0.75), Math.min(100, rawBgHsl.l * 1.10));
-const g = (i: number): RGB => palette.groups[i - 1]; // g(1)..g(15), sorted by pixel share desc
 
 const hex = RGB.toHex;
 const mix = RGB.lerp;
 
 // A near-white paper tone (Solarized's own base3) used only as a lightening
 // target for derived UI-chrome tints (selection highlight, "bright" ANSI
-// variants) -- not one of the 16 extracted colors, since nothing in the
+// variants) -- not one of the extracted colors, since nothing in the
 // manuscript is lighter than the parchment background itself.
 const PAPER_WHITE: RGB = {r: 253, g: 246, b: 227};
 
@@ -33,28 +22,28 @@ const PAPER_WHITE: RGB = {r: 253, g: 246, b: 227};
 // actual trick is holding all 8 accents at a consistent, contrast-safe
 // lightness regardless of hue; HSLUV's L is perceptually uniform across
 // hues, so re-lighting each extracted color to a fixed target via HSLUV
-// (keeping its hue/saturation) reproduces that -- verified this gives
-// ~4.8:1 contrast against our background across every hue tested, comfortably
-// past WCAG AA's 4.5:1 for normal text.
+// (keeping its hue/saturation) reproduces that.
 const ACCENT_TEXT_L = 30;
-const COMMENT_TEXT_L = 36; // deliberately a bit lower-contrast than accents/body text -- comments should read as secondary, just not illegible (was 1.91:1; this is ~3.8:1)
+const COMMENT_TEXT_L = 36; // deliberately a bit lower-contrast than accents/body text -- comments should read as secondary, just not illegible
 
 // Sidebar "ignored" (gitignored) file names need to read as clearly *more*
 // faded than normal sidebar text, not just individually legible against the
-// sidebar background -- reusing `comments` here originally left the two only
-// 1.24:1 apart from each other (both landed near the same lightness by
-// coincidence), so ignored files stopped looking distinct once the
-// background got lighter. This is deliberately its own, much higher target.
-const SIDEBAR_DIMMED_L = 46; // ~1.8:1 vs normal sidebar text, ~2.5:1 vs sidebar bg -- clearly faded but still readable
+// sidebar background -- this is deliberately its own, much higher target
+// than COMMENT_TEXT_L (see theme/README.md for the "1.24:1 apart from each
+// other" bug this was fixed after).
+const SIDEBAR_DIMMED_L = 46;
 
-// "Bold" variant: several extracted hues are quite muted as raw pigment
-// (blue/green/cyan/violet sit at HSLUV S=7-31%; only yellow/orange/red are
-// naturally vivid at S=60-81%). Rather than a flat multiplier -- which would
-// barely move the already-weak hues -- Bold targets a single fixed
-// saturation for every accent, the same uniformity trick ACCENT_TEXT_L uses
-// for lightness, so the boost is consistent across hues instead of
-// proportional to however saturated the raw pigment happened to be.
+// "Bold" variant: several extracted hues are quite muted as raw pigment.
+// Rather than a flat multiplier -- which would barely move the already-weak
+// hues -- Bold targets a single fixed saturation for every accent, the same
+// uniformity trick ACCENT_TEXT_L uses for lightness.
 const ACCENT_SATURATION_BOLD = 75;
+
+interface PaletteSource {
+    slugPrefix: string;
+    labelPrefix: string;
+    paletteFile: string; // absolute path to a palette.json-shaped file
+}
 
 interface Variant {
     label: string;
@@ -62,70 +51,75 @@ interface Variant {
     accentSaturation?: number; // undefined = keep each color's own extracted saturation
 }
 
-function buildTheme(variant: Variant) {
-    const relight = (rgb: RGB, l: number) => HSLUV.withLightness(rgb, l, variant.accentSaturation);
+const VARIANTS: Variant[] = [
+    {label: 'Subtle', fileSlug: 'subtle'},
+    {label: 'Bold', fileSlug: 'bold', accentSaturation: ACCENT_SATURATION_BOLD}
+];
 
-    // --- Role mapping -------------------------------------------------
-    // See theme/README.md for the full rationale. Short version:
-    // background/comments/body-text and yellow/orange/blue/green are
-    // genuine perceptual matches (closest CIE Lab hue to Solarized's role
-    // of the same name, computed from post-processing/palette.json), re-lit
-    // per above for legibility (and, in the Bold variant, saturation).
-    // red/magenta/violet have no true match -- centuries-old ink and
-    // parchment pigments don't cover that part of the hue wheel -- so those
-    // three are FUNCTIONAL substitutes, not hue matches.
-    const blueAccent = relight(g(11), ACCENT_TEXT_L);
-    const bgHighlightBase = mix(bg, g(1), 0.35); // derived tint from raw g(1) -- sidebar/activity-bar background
+const SOURCES: PaletteSource[] = [
+    {
+        slugPrefix: 'kells-light',
+        labelPrefix: 'Kells Light',
+        paletteFile: path.join(__dirname, 'palette.json')
+    },
+    {
+        // The 15 rarest, most pixel-share-poor colors (background's top-16
+        // most-prominent groups stripped out -- "skimming the cream off the
+        // top"), so the accent roles are picked from what's actually rare/
+        // distinct in the manuscript rather than the dominant ink/parchment
+        // gradient. Same background as the original -- only the pool of
+        // colors available for accent roles differs.
+        slugPrefix: 'skimmed-kells-light',
+        labelPrefix: 'Skimmed Kells Light',
+        paletteFile: path.join(__dirname, 'palette-runs', 'palette-32', 'deltaE16-skim17-31.json')
+    }
+];
 
+function buildTheme(background: PaletteEntry, roleSelection: RoleSelection, variant: Variant) {
+    const relight = (e: PaletteEntry, l: number) => HSLUV.withLightness(e, l, variant.accentSaturation);
+    const accent = (role: AccentRole, lAdjust: number = 0) => relight(roleSelection.accents[role], ACCENT_TEXT_L + lAdjust);
+
+    // Bold's saturation override never applies to core tones (bg/comments/
+    // bodyText) or sidebar text -- only the 8 accent roles.
+    const rawBgHsl = HSLUV.fromRgb(background);
+    const bg: RGB = HSLUV.withLightness(HSLUV.desaturate(background, 0.75), Math.min(100, rawBgHsl.l * 1.10));
+    const bgHighlightBase = mix(bg, roleSelection.comments, 0.35);
+
+    // cyan and violet are the two roles most likely to end up near-neutral
+    // (weak/no real hue match), which made them collapse into nearly the
+    // same color when both re-lit to the same L -- offset them a few L
+    // apart so they stay distinguishable from each other, not just from the
+    // background. See theme/README.md.
     const roles = {
-        // Core tones -- never saturation-boosted, Bold only affects accents
-        bg,                                          // background parchment average
-        bgHighlight: HSLUV.withLightness(bgHighlightBase, Math.min(100, HSLUV.fromRgb(bgHighlightBase).l * 1.05)), // 5% lighter still, per user request
-        comments: HSLUV.withLightness(g(1), COMMENT_TEXT_L),   // #948269 raw -- muted tan, re-lit for legibility
-        bodyText: g(2),                              // #4e3b2c -- most-represented ink brown, already high-contrast as extracted
+        bg,
+        bgHighlight: HSLUV.withLightness(bgHighlightBase, Math.min(100, HSLUV.fromRgb(bgHighlightBase).l * 1.05)),
+        comments: HSLUV.withLightness(roleSelection.comments, COMMENT_TEXT_L),
+        bodyText: roleSelection.bodyText as RGB,
 
-        // Perceptual hue matches (closest Lab hue angle to Solarized's own), re-lit for legibility
-        yellow: relight(g(13), ACCENT_TEXT_L),       // raw #cea859
-        orange: relight(g(15), ACCENT_TEXT_L),       // raw #a45a2d -- our reddest color is still hue-wise closer to orange than red
-        blue: blueAccent,
-        green: relight(g(14), ACCENT_TEXT_L),        // raw #6a7c69
-
-        // Functional substitutes -- no matching pigment exists in this palette
-        red: relight(g(5), ACCENT_TEXT_L),           // raw #2e1e11, darkest ink -- borrows red's *emphasis* role, not its hue
-        // cyan and violet are both near-neutral grays as extracted (barely any
-        // hue at all), so re-lighting both to the same L made them collapse
-        // into nearly the same color -- offset them a few L apart so they stay
-        // distinguishable from each other, not just from the background.
-        cyan: relight(g(10), ACCENT_TEXT_L + 4),     // raw #757b7d -- weakly cool neutral, nearest thing to a cyan we have
-        violet: relight(g(7), ACCENT_TEXT_L - 4),    // raw #3b3e3d -- neutral charcoal stand-in
-        magenta: blueAccent                          // reuses blue -- no warm-toward-purple pigment exists at all
+        yellow: accent('yellow'),
+        orange: accent('orange'),
+        blue: accent('blue'),
+        green: accent('green'),
+        red: accent('red'),
+        cyan: accent('cyan', 4),
+        violet: accent('violet', -4),
+        magenta: accent('magenta')
     };
 
-    // Leftover extracted colors, used for secondary UI chrome / ANSI "bright"
-    // variants rather than left on the cutting-room floor. brown is used as a
-    // background wash (raw is fine there); the rest are used as token-color
-    // foregrounds below, so -- same legibility fix as the main accent roles --
-    // they're re-lit rather than used raw.
+    const spareAt = (i: number): PaletteEntry => roleSelection.spare[i % roleSelection.spare.length];
     const spare = {
-        tan: HSLUV.withLightness(g(3), COMMENT_TEXT_L),   // raw #776248 -- punctuation, meant to read as subtle like comments
-        brown: g(6),                                      // #624122 -- used as a background wash, kept raw
-        rust: relight(g(8), ACCENT_TEXT_L),                // raw #87572c
-        clay: relight(g(9), ACCENT_TEXT_L),                // raw #a4764f
-        ochre: relight(g(12), ACCENT_TEXT_L)               // raw #a27f3f
+        tan: HSLUV.withLightness(spareAt(0), COMMENT_TEXT_L),
+        brown: spareAt(1) as RGB,
+        rust: relight(spareAt(2), ACCENT_TEXT_L),
+        clay: relight(spareAt(3), ACCENT_TEXT_L),
+        ochre: relight(spareAt(4), ACCENT_TEXT_L)
     };
 
     const bright = (c: RGB) => mix(c, PAPER_WHITE, 0.35);
     const faint = (c: RGB) => mix(bg, c, 0.55);
 
-    // Sidebar/activity-bar rows render against `bgHighlight` (#b5a58e), which is
-    // darker than the editor background `bg` -- using raw bodyText there (meant
-    // for the lighter editor bg) read as too dark/harsh, while the ignored-file
-    // color below was blended toward the wrong (too-light) background and ended
-    // up nearly invisible (1.6:1) against the sidebar. Both are dedicated,
-    // sidebar-specific tones tuned against the sidebar's actual background
-    // rather than reusing the editor-context roles.
-    const sidebarText = HSLUV.withLightness(g(2), ACCENT_TEXT_L);          // bodyText's hue, a touch lighter than editor body text
-    const sidebarDimmed = HSLUV.withLightness(g(1), SIDEBAR_DIMMED_L);    // comments' hue, but deliberately much lighter than sidebarText so ignored files read as distinct, not just individually legible
+    const sidebarText = HSLUV.withLightness(roleSelection.bodyText, ACCENT_TEXT_L);
+    const sidebarDimmed = HSLUV.withLightness(roleSelection.comments, SIDEBAR_DIMMED_L);
 
     const theme = {
         name: variant.label,
@@ -152,9 +146,6 @@ function buildTheme(variant: Variant) {
             'editorWhitespace.foreground': hex(faint(roles.comments)),
             'editorBracketMatch.background': hex(mix(roles.bg, roles.orange, 0.2)),
             'editorBracketMatch.border': hex(roles.orange),
-            // VSCode's bracket-pair colorization is a separate feature from
-            // tokenColors below -- without these keys it falls back to its own
-            // default (vivid, un-themed) rainbow palette.
             'editorBracketHighlight.foreground1': hex(spare.tan),
             'editorBracketHighlight.foreground2': hex(spare.clay),
             'editorBracketHighlight.foreground3': hex(spare.ochre),
@@ -249,80 +240,24 @@ function buildTheme(variant: Variant) {
             'terminal.ansiBrightWhite': hex(PAPER_WHITE)
         },
         tokenColors: [
-            {
-                settings: {foreground: hex(roles.bodyText)}
-            },
-            {
-                scope: ['comment', 'punctuation.definition.comment'],
-                settings: {foreground: hex(roles.comments), fontStyle: 'italic'}
-            },
-            {
-                scope: ['string', 'string.quoted'],
-                settings: {foreground: hex(roles.green)}
-            },
-            {
-                scope: ['constant.numeric', 'constant.language', 'constant.character'],
-                settings: {foreground: hex(spare.rust)}
-            },
-            {
-                scope: ['keyword', 'storage', 'storage.type', 'keyword.control'],
-                settings: {foreground: hex(roles.orange)}
-            },
-            {
-                scope: ['keyword.operator'],
-                settings: {foreground: hex(roles.bodyText)}
-            },
-            {
-                scope: ['entity.name.function', 'support.function'],
-                settings: {foreground: hex(roles.blue)}
-            },
-            {
-                scope: ['entity.name.type', 'entity.name.class', 'support.type', 'support.class'],
-                settings: {foreground: hex(roles.yellow)}
-            },
-            {
-                scope: ['entity.name.tag'],
-                settings: {foreground: hex(roles.red)}
-            },
-            {
-                scope: ['entity.other.attribute-name'],
-                settings: {foreground: hex(spare.ochre)}
-            },
-            {
-                scope: ['variable', 'variable.other'],
-                settings: {foreground: hex(roles.bodyText)}
-            },
-            {
-                scope: ['variable.parameter'],
-                settings: {foreground: hex(spare.clay)}
-            },
-            {
-                scope: ['constant.other', 'variable.other.constant'],
-                settings: {foreground: hex(roles.cyan)}
-            },
-            {
-                scope: ['punctuation', 'meta.brace'],
-                settings: {foreground: hex(spare.tan)}
-            },
-            {
-                scope: ['markup.bold'],
-                settings: {fontStyle: 'bold'}
-            },
-            {
-                scope: ['markup.italic'],
-                settings: {fontStyle: 'italic'}
-            },
-            {
-                scope: ['invalid', 'invalid.illegal'],
-                settings: {foreground: hex(PAPER_WHITE), background: hex(roles.red)}
-            }
+            {settings: {foreground: hex(roles.bodyText)}},
+            {scope: ['comment', 'punctuation.definition.comment'], settings: {foreground: hex(roles.comments), fontStyle: 'italic'}},
+            {scope: ['string', 'string.quoted'], settings: {foreground: hex(roles.green)}},
+            {scope: ['constant.numeric', 'constant.language', 'constant.character'], settings: {foreground: hex(spare.rust)}},
+            {scope: ['keyword', 'storage', 'storage.type', 'keyword.control'], settings: {foreground: hex(roles.orange)}},
+            {scope: ['keyword.operator'], settings: {foreground: hex(roles.bodyText)}},
+            {scope: ['entity.name.function', 'support.function'], settings: {foreground: hex(roles.blue)}},
+            {scope: ['entity.name.type', 'entity.name.class', 'support.type', 'support.class'], settings: {foreground: hex(roles.yellow)}},
+            {scope: ['entity.name.tag'], settings: {foreground: hex(roles.red)}},
+            {scope: ['entity.other.attribute-name'], settings: {foreground: hex(spare.ochre)}},
+            {scope: ['variable', 'variable.other'], settings: {foreground: hex(roles.bodyText)}},
+            {scope: ['variable.parameter'], settings: {foreground: hex(spare.clay)}},
+            {scope: ['constant.other', 'variable.other.constant'], settings: {foreground: hex(roles.cyan)}},
+            {scope: ['punctuation', 'meta.brace'], settings: {foreground: hex(spare.tan)}},
+            {scope: ['markup.bold'], settings: {fontStyle: 'bold'}},
+            {scope: ['markup.italic'], settings: {fontStyle: 'italic'}},
+            {scope: ['invalid', 'invalid.illegal'], settings: {foreground: hex(PAPER_WHITE), background: hex(roles.red)}}
         ],
-        // TypeScript (and other languages with a semantic-token provider) colors
-        // many identifiers -- notably type parameters like the "TValue" in
-        // `interface Foo<TValue>` -- via semantic highlighting, which overrides
-        // tokenColors above for the scopes it covers. Without this block those
-        // fall back to VSCode's own default semantic palette instead of ours.
-        // Mirrors the same role choices as the tokenColors scopes above.
         semanticTokenColors: {
             'type': hex(roles.yellow),
             'class': hex(roles.yellow),
@@ -341,25 +276,68 @@ function buildTheme(variant: Variant) {
         }
     };
 
-    return {theme, roles};
+    return {theme, roles, sidebarText, sidebarDimmed};
 }
 
-const VARIANTS: Variant[] = [
-    {label: 'Kells Light Subtle', fileSlug: 'kells-light-subtle'},
-    {label: 'Kells Light Bold', fileSlug: 'kells-light-bold', accentSaturation: ACCENT_SATURATION_BOLD}
-];
+function auditAndReport(label: string, roles: ReturnType<typeof buildTheme>['roles'], sidebarText: RGB, sidebarDimmed: RGB, isSubstitute: {[role in AccentRole]: boolean}) {
+    const editorAudit = auditColorSet(
+        {comments: roles.comments, bodyText: roles.bodyText, yellow: roles.yellow, orange: roles.orange, red: roles.red, magenta: roles.magenta, violet: roles.violet, blue: roles.blue, cyan: roles.cyan, green: roles.green},
+        roles.bg
+    );
+    const sidebarAudit = auditColorSet({normal: sidebarText, dimmed: sidebarDimmed}, roles.bgHighlight);
+
+    console.log(`  Audit (${label}):`);
+    const belowAA = editorAudit.legibility.filter((r) => r.contrastVsBg < 4.5 && r.name !== 'comments');
+    if (belowAA.length) {
+        console.log(`    LOW CONTRAST vs bg (< 4.5:1): ${belowAA.map((r) => `${r.name} ${r.hex} ${r.contrastVsBg.toFixed(2)}:1`).join(', ')}`);
+    } else {
+        console.log('    All accent/body colors >= 4.5:1 vs background.');
+    }
+
+    // A substitute role (e.g. "magenta reuses red") is *expected* to be
+    // indistinct from whatever it reused -- that's already reported via the
+    // "*" line above, so only pairs where BOTH roles got a genuine hue
+    // match are worth surfacing here as an actual, unexpected collision.
+    const isKnownRole = (name: string): boolean => name in isSubstitute;
+    const genuineWarnings = [...editorAudit.distinctnessWarnings, ...sidebarAudit.distinctnessWarnings]
+        .filter((w) => !((isKnownRole(w.a) && isSubstitute[w.a as AccentRole]) || (isKnownRole(w.b) && isSubstitute[w.b as AccentRole])));
+
+    if (genuineWarnings.length) {
+        console.log(`    NOT DISTINCT from each other (deltaE < 15, both genuine matches): ${genuineWarnings.map((w) => `${w.a}/${w.b} dE=${w.deltaE.toFixed(1)}`).join(', ')}`);
+    } else {
+        console.log('    All genuinely-matched roles pairwise distinct (deltaE >= 15), including sidebar normal/dimmed.');
+    }
+}
 
 const themeDir = path.join(__dirname, '..', 'theme');
 const themesSubdir = path.join(themeDir, 'themes');
 fs.mkdirSync(themesSubdir, {recursive: true});
 
-for (const variant of VARIANTS) {
-    const {theme, roles} = buildTheme(variant);
-    const outPath = path.join(themesSubdir, `${variant.fileSlug}-color-theme.json`);
-    fs.writeFileSync(outPath, JSON.stringify(theme, null, 2));
-    console.log(`Wrote ${outPath}`);
-    console.log(`  Role -> color mapping (${variant.label}):`);
-    Object.entries(roles).forEach(([name, c]) => console.log(`    ${name.padEnd(12)} ${hex(c as RGB)}`));
+const allThemeEntries: {label: string, fileSlug: string}[] = [];
+
+for (const source of SOURCES) {
+    const palette = JSON.parse(fs.readFileSync(source.paletteFile, 'utf8'));
+    const roleSelection = selectRoles(palette.groups);
+
+    console.log(`\n=== ${source.labelPrefix} (from ${path.relative(themeDir, source.paletteFile)}) ===`);
+    console.log(`  bodyText: ${hex(roleSelection.bodyText)}  comments: ${hex(roleSelection.comments)}`);
+    const substitutes = Object.entries(roleSelection.isSubstitute).filter(([, v]) => v).map(([k]) => k);
+    console.log(`  accents: ${Object.entries(roleSelection.accents).map(([role, e]) => `${role}=${hex(e as RGB)}${roleSelection.isSubstitute[role as AccentRole] ? '*' : ''}`).join(' ')}`);
+    console.log(`  (* = functional substitute, no genuine hue match: ${substitutes.join(', ') || 'none'})`);
+
+    for (const variant of VARIANTS) {
+        const {theme, roles, sidebarText, sidebarDimmed} = buildTheme(palette.background, roleSelection, variant);
+        const fileSlug = `${source.slugPrefix}-${variant.fileSlug}`;
+        const label = `${source.labelPrefix} ${variant.label}`;
+        theme.name = label;
+
+        const outPath = path.join(themesSubdir, `${fileSlug}-color-theme.json`);
+        fs.writeFileSync(outPath, JSON.stringify(theme, null, 2));
+        console.log(`  Wrote ${path.relative(themeDir, outPath)}`);
+        auditAndReport(label, roles, sidebarText, sidebarDimmed, roleSelection.isSubstitute);
+
+        allThemeEntries.push({label, fileSlug});
+    }
 }
 
 const manifest = {
@@ -371,13 +349,13 @@ const manifest = {
     engines: {vscode: '^1.60.0'},
     categories: ['Themes'],
     contributes: {
-        themes: VARIANTS.map((variant) => ({
-            label: variant.label,
+        themes: allThemeEntries.map((entry) => ({
+            label: entry.label,
             uiTheme: 'vs',
-            path: `./themes/${variant.fileSlug}-color-theme.json`
+            path: `./themes/${entry.fileSlug}-color-theme.json`
         }))
     }
 };
 
 fs.writeFileSync(path.join(themeDir, 'package.json'), JSON.stringify(manifest, null, 2));
-console.log(`Wrote ${path.join(themeDir, 'package.json')}`);
+console.log(`\nWrote ${path.join(themeDir, 'package.json')} (${allThemeEntries.length} themes)`);

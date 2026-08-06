@@ -2,6 +2,8 @@ import * as _ from 'lodash';
 import {agnes} from 'ml-hclust';
 import {Lab, RGB} from './colors';
 
+const toCss = RGB.toHex;
+
 export interface AggregatedColor {
     r: number;
     g: number;
@@ -139,4 +141,43 @@ export function computePalette(bins: Bin[], totalPixels: number, params: Pick<Pa
         .sort((a, b) => b.count - a.count);
 
     return {background, groups, totalPixels, binCount: bins.length};
+}
+
+const paletteRow = (label: string, e: PaletteEntry) =>
+    `<tr><td><div style="background-color: ${toCss(e)}" class="colorBox">&nbsp;</div></td><td>${toCss(e)} ${label}</td><td>${(e.share * 100).toFixed(2)}%</td><td>${e.memberBins}</td></tr>`;
+
+export function renderPaletteHtml(result: PaletteResult): string {
+    const rows = [
+        paletteRow('(background)', result.background),
+        ...result.groups.map((g, i) => paletteRow(`(group ${i + 1})`, g))
+    ].join('\n');
+
+    return `
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title></title>
+	<style type="text/css">
+		div.colorBox {
+			display: inline-block;
+			height: 2em;
+			border: black 1px solid;
+			width: 2em;
+			margin-right: 0.5em;
+			vertical-align: middle;
+		}
+		td, tbody {
+		    font-family: monospace;
+			line-height: 2.5em;
+		}
+	</style>
+</head>
+<body><table>
+<thead><tr><td>swatch</td><td>hex</td><td>share</td><td>member bins</td></tr></thead>
+<tbody>
+${rows}
+</tbody></table></body>
+</html>`;
 }

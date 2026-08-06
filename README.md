@@ -99,19 +99,45 @@ a distinct color.
 
 Writes `post-processing/palette-runs/sweep-results.{csv,json}`.
 
-#### Generate VSCode themes from the extracted palette: `generate-vscode-theme.ts`
+#### Extract a larger, higher-fidelity palette: `extract-palette-32.ts`
 
-Turns `post-processing/palette.json` into an installable VSCode color theme
-extension under `theme/` — **Kells Light Subtle** and **Kells Light Bold** — built
-on Solarized Light's role structure (background, background-highlight, comments,
-body text, plus 8 accent hues) with each role's color swapped for the closest
-available manuscript ink/parchment tone (Bold additionally normalizes every
-accent's saturation to a shared, higher target; Subtle keeps each color's own,
-often quite muted, extracted saturation). See `theme/README.md` for the full
-role-mapping table and how to preview it — the short version is centuries-old
-ink/parchment pigments don't cover the full hue wheel Solarized's synthetic
-palette does, so a few accent roles (red, violet, magenta) are documented
-functional substitutes rather than true hue matches.
+Like `extract-palette.ts`, but background + 31 colors instead of background + 15,
+swept across `BACKGROUND_DELTA_E` 12-18 in one run (writes one JSON+HTML pair per
+value to `palette-runs/palette-32/`). Getting real fidelity out of 31 groups
+instead of 15 needed two changes, not just a bigger `NUM_GROUPS`: a finer
+`BIN_SIZE` (8 instead of 16, ~3x the surviving bins) so clustering has more than
+"the same few dominant blobs" to carve up, and a correspondingly *lower*
+`NOISE_FLOOR_RATIO` -- halving `BIN_SIZE` fragments every color's pixel mass across
+more, smaller bins, which was silently dropping rare accent hues (the green
+accent's surviving bins went from 22 to 4 at the same noise floor) below the floor
+entirely rather than just deprioritizing them in clustering. Even with both fixes,
+most of the extra fidelity is *tonal* (more distinguishable shades of the dominant
+ink-brown family), not more hue variety -- the manuscript itself doesn't contain a
+richer hue palette than the original 15 colors already found.
+
+One derived artifact worth knowing about: `palette-runs/palette-32/deltaE16-skim17-31.json`
+is background + groups 17-31 (by pixel share) from the deltaE=16 run -- i.e. the top
+16 *most* prominent colors stripped out, leaving mostly rare pigments rather than
+dominant ink/parchment tones ("skimming the cream off the top"). Used as an
+alternate input to the theme generator below.
+
+#### Generate VSCode themes from an extracted palette: `generate-vscode-theme.ts`
+
+Turns any palette shaped like `{background, groups}` into an installable VSCode
+color theme extension under `theme/`. Currently generates four themes -- **Kells
+Light** (from the full 16-color extraction) and **Skimmed Kells Light** (from the
+skimmed 16-color set above), each in **Subtle** (each accent keeps its own,
+often quite muted, extracted saturation) and **Bold** (every accent's saturation
+normalized to a shared, higher target) variants -- built on Solarized Light's role
+structure (background, background-highlight, comments, body text, plus 8 accent
+hues), with each role picked *algorithmically* (nearest-hue matching against real
+Solarized colors, with a diversity constraint and an honest substitute-fallback for
+roles with no real match) rather than hand-chosen per palette. Also runs a
+legibility + distinctness audit on every generated theme. See `theme/README.md` for
+the full mechanism -- the short version is centuries-old ink/parchment pigments
+don't cover the full hue wheel Solarized's synthetic palette does, so a few accent
+roles per palette end up as documented functional substitutes rather than true hue
+matches.
 
 #### `palette-runs/`
 

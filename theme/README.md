@@ -1,17 +1,30 @@
 # Kells (Light)
 
-Two VSCode color themes generated from colors extracted from a scanned illuminated
+Four VSCode color themes generated from colors extracted from a scanned illuminated
 manuscript (see `post-processing/generate-vscode-theme.ts` and, upstream of that,
-`post-processing/extract-palette.ts`). Built on Solarized Light's structure
-(background / bg-highlight / comments / body text + 8 accent roles), with each
-role's color swapped for the closest available manuscript ink or parchment tone.
+`post-processing/extract-palette.ts` / `extract-palette-32.ts`). Built on Solarized
+Light's structure (background / bg-highlight / comments / body text + 8 accent
+roles), with each role's color picked algorithmically from whichever extracted
+palette is fed in — not hand-chosen per palette, so the same generator produces
+sensible themes from any palette shaped like `{background, groups}`.
 
-- **Kells Light Subtle** — accents keep each extracted color's own (often quite
-  muted) saturation, only lightness is normalized for legibility.
-- **Kells Light Bold** — same hues, but every accent's saturation is also
-  normalized to a fixed, higher target (`ACCENT_SATURATION_BOLD`), so blue/green/
-  cyan/etc. read as vivid rather than muted. Background/comments/body text are
-  unchanged between the two — only the 8 accent roles differ.
+**Two palette sources**, each in **Subtle** and **Bold** saturation variants (4
+themes total):
+
+- **Kells Light** — the full 16-color extraction (`post-processing/palette.json`):
+  background + the 15 most pixel-prominent distinct colors.
+- **Skimmed Kells Light** — background + the 15 *least* prominent of a 32-color
+  extraction (`palette-runs/palette-32/deltaE16-skim17-31.json`), i.e. the top 16
+  most-common colors ("the cream") skimmed off, leaving mostly rare accent pigments
+  rather than dominant ink/parchment tones. Same background as Kells Light — only
+  the pool of colors available for accent roles differs.
+
+And independently:
+
+- **Subtle** — accents keep each extracted color's own (often quite muted) saturation.
+- **Bold** — every accent's saturation is also normalized to a fixed, higher target
+  (`ACCENT_SATURATION_BOLD`), so blue/green/cyan/etc. read as vivid rather than
+  muted.
 
 ## Regenerating
 
@@ -20,9 +33,12 @@ npx tsc -p tsconfig.json
 node post-processing/generate-vscode-theme.js
 ```
 
-Reads `post-processing/palette.json` (produced by `extract-palette.ts`) and
-rewrites both `theme/themes/kells-light-{subtle,bold}-color-theme.json` +
-`theme/package.json`. Re-run after re-extracting the palette to pick up new colors.
+Reads both palette sources listed in `SOURCES` in `generate-vscode-theme.ts` and
+rewrites all four `theme/themes/*-color-theme.json` + `theme/package.json`. Prints,
+per theme: which extracted colors got picked for which role, which roles ended up
+as functional substitutes (no genuine hue match), and an audit report (see below).
+Re-run after re-extracting a palette to pick up new colors, or add another entry to
+`SOURCES` to generate a theme from a different palette entirely.
 
 ## Previewing
 
@@ -30,50 +46,65 @@ rewrites both `theme/themes/kells-light-{subtle,bold}-color-theme.json` +
 code --extensionDevelopmentPath="$(pwd)/theme" "$(pwd)"
 ```
 
-Opens an Extension Development Host window with both themes installed. Select one
-via `Cmd+K Cmd+T` (or "Preferences: Color Theme") -> "Kells Light Subtle" / "Kells
-Light Bold".
+Opens an Extension Development Host window with all four themes installed. Select
+one via `Cmd+K Cmd+T` (or "Preferences: Color Theme").
 
-## Role mapping
+## How role selection works (`shared/theme-roles.ts`)
 
-Each role's *hue* comes from the extracted color named below, but not its raw
-lightness (and, in Bold, not its raw saturation either): the first version of this
-theme used raw extracted lightness and was nearly illegible (several roles, worst
-case `yellow` at 1.15:1, were too close in brightness to the parchment background
-to read at all). Real Solarized's actual trick is holding all 8 accents at a
-consistent, contrast-safe lightness regardless of hue, so each role below is re-lit
-to a fixed HSLUV lightness (Subtle keeps the extracted color's own saturation; Bold
-also fixes saturation to a shared target) before use — accents target L=30 (~4.8:1
-against the background), comments/punctuation deliberately a bit lower at L=36
-(~3.8:1, so they read as secondary without being unreadable). See
-`ACCENT_TEXT_L`/`COMMENT_TEXT_L`/`ACCENT_SATURATION_BOLD`/`buildTheme()` in
-`generate-vscode-theme.ts`.
+Earlier versions hand-picked which extracted color (by index) served each role --
+that only made sense for the one palette it was tuned against. `selectRoles()`
+re-derives sensible picks for *any* palette:
 
-| Role | Source (raw hue) | Subtle hex | Bold hex | Basis |
-|---|---|---|---|---|
-| background | `background` (parchment average) | `#c7b8a2` | `#c7b8a2` | the whole point of the exercise; never re-lit |
-| bg-highlight | derived (35% toward raw group 1) | `#b5a58e` | `#b5a58e` | nothing in the palette is lighter than background itself |
-| comments | group 1 (`#948269`) | `#5f5342` | `#5f5342` | re-lit lighter than body text -> reads as de-emphasized, still readable; unaffected by Bold |
-| body text | group 2 (`#4e3b2c`) | `#4e3b2c` | `#4e3b2c` | most-represented ink brown (5.7% of all pixels); already high-contrast raw; unaffected by Bold |
-| yellow | group 13 (`#cea859`) | `#564421` | `#56441f` | closest Lab hue angle to Solarized yellow |
-| orange | group 15 (`#a45a2d`) | `#6c391a` | `#6a3a1f` | closest Lab hue angle to Solarized orange (also the reddest color we have) |
-| blue | group 11 (`#4e5c6d`) | `#3c4855` | `#254969` | closest Lab hue angle to Solarized blue |
-| green | group 14 (`#6a7c69`) | `#3e4a3e` | `#23501f` | closest Lab hue angle to Solarized green |
-| red | group 5, darkest ink (`#2e1e11`) | `#5d4129` | `#613f1f` | **functional, not hue, match** — no red pigment exists in this palette; borrows red's *emphasis* role instead |
-| cyan | group 10 (`#757b7d`) | `#4d5152` | `#285661` | weakly cool neutral gray as extracted; L nudged +4 off violet so the two near-neutrals stay distinguishable |
-| violet | group 7 (`#3b3e3d`) | `#3b3e3d` | `#1c443a` | neutral charcoal stand-in — no violet pigment exists; L nudged -4 off cyan |
-| magenta | reuses blue | `#3c4855` | `#254969` | no warm-toward-purple pigment exists at all; shares blue's color rather than inventing one |
+1. **bodyText**: the darkest available color (ink is characteristically dark).
+2. **comments**: a lighter color from bodyText's own hue family (reads as "a muted
+   version of the ink"), preferring the most pixel-prominent candidate.
+3. **8 accent roles** (yellow/orange/red/magenta/violet/blue/cyan/green): matched
+   against real Solarized hex values (hue computed at runtime, not hardcoded) via
+   global greedy nearest-hue assignment -- every (role, candidate) pair is scored by
+   hue distance and assigned in ascending-distance order, so the single best match
+   anywhere gets first pick. A diversity constraint (`MIN_HUE_SEPARATION_DEGREES`,
+   20°) skips a candidate that would land too close to an already-assigned role's
+   hue, so two roles don't both grab the same dominant hue family (this palette is
+   ~70% warm ink-brown; without this, "red" and "orange" both grabbed nearly the
+   same rust brown). A role that can't get both a diverse *and* genuinely close
+   (`POOR_MATCH_THRESHOLD_DEGREES`, 40°) match is left unassigned here.
+4. **Substitute fallback**: any unassigned role borrows the resolved color from
+   whichever *other*, already-well-matched role sits closest to it on Solarized's
+   own color wheel (computed from the target hues, not the extracted palette, so
+   the fallback pairing is stable across palettes). This is why `magenta` and
+   `violet` (and, in the full Kells palette, `red` too) show up flagged with `*` in
+   the generator's console output -- centuries-old ink/parchment pigments don't
+   cover the full hue wheel Solarized's synthetic palette does, so some roles are
+   always going to be honest compromises rather than real matches.
 
-Centuries-old ink and parchment simply don't cover the red/magenta/violet part of
-the hue wheel the way Solarized's synthetic palette does, so three of the eight
-accent roles above are honest compromises rather than real hue matches — flagged
-here rather than hidden, so token colors can be re-picked by hand if this bothers
-you in practice (`generate-vscode-theme.ts`'s `roles` object is where to change it).
+Lightness/saturation normalization (re-lighting every role to a fixed HSLUV
+lightness for legibility, Bold's saturation boost, the sidebar-specific tones, the
+5%/10%/25% background tuning) works exactly as before, just applied to whichever
+color `selectRoles()` picked instead of a hardcoded group index -- see the comments
+in `generate-vscode-theme.ts` for the specific constants and why each exists.
 
-One thing Bold makes more visible than Subtle did: `violet`'s source color (group
-7, a near-neutral charcoal) turns out to sit at HSLUV hue ≈165° once you actually
-push its saturation up — that's a teal/green hue, not violet/purple at all. It read
-as fine, unremarkable gray in Subtle; boosted, it looks like a second green rather
-than a violet. Known, not yet fixed — a real violet-leaning substitute doesn't
-exist in this palette either, so fixing it means picking a different kind of
-compromise, not finding a better match.
+## Audit (`shared/theme-audit.ts`)
+
+Run automatically for every generated theme; two checks:
+
+- **Legibility**: WCAG contrast of body/comments/each accent against the editor
+  background (and sidebar text against the sidebar background). Correct tool for
+  "is this text readable."
+- **Distinctness**: Lab deltaE76 between every pair of roles. This is *not* the same
+  question as legibility -- WCAG contrast is a luminance-only metric, and all 8
+  accents are deliberately re-lit to nearly the same lightness (the actual
+  Solarized trick), so WCAG contrast between any two accents is always going to
+  read as ~1:1 regardless of how different their hues are. Only deltaE (which
+  accounts for hue/chroma) can tell "yellow vs blue" (obviously different, deltaE
+  42) apart from "cyan vs violet" (a real collision found during development,
+  deltaE 17) or worse. Pairs where one role is a known substitute are excluded from
+  the warning list -- `red == orange` because red is *documented* as reusing
+  orange's color is expected, not a bug; the audit only flags collisions between two
+  roles that were each supposed to get their own genuine match.
+
+Bold variants generally come out more distinct than Subtle (more saturation moves
+colors further apart in Lab space) -- Skimmed Kells Light Bold currently reports
+zero distinctness warnings; Subtle variants keep some residual closeness among the
+naturally low-saturation cool hues (blue/cyan/green), which is an expected
+consequence of what "Subtle" means, not a bug Bold-style saturation-forcing would
+fix without contradicting the point of having a Subtle variant at all.

@@ -21,6 +21,16 @@
         "label": "Kells Light Bold",
         "uiTheme": "vs",
         "path": "./themes/kells-light-bold-color-theme.json"
+      },
+      {
+        "label": "Skimmed Kells Light Subtle",
+        "uiTheme": "vs",
+        "path": "./themes/skimmed-kells-light-subtle-color-theme.json"
+      },
+      {
+        "label": "Skimmed Kells Light Bold",
+        "uiTheme": "vs",
+        "path": "./themes/skimmed-kells-light-bold-color-theme.json"
       }
     ]
   }
