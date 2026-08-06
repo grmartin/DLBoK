@@ -1,0 +1,27 @@
+{
+  "name": "kells-color-themes",
+  "displayName": "Kells",
+  "description": "VSCode themes built from colors extracted from a scanned illuminated manuscript (see post-processing/generate-vscode-theme.ts).",
+  "version": "0.0.1",
+  "publisher": "dlbok",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Kells Light Subtle",
+        "uiTheme": "vs",
+        "path": "./themes/kells-light-subtle-color-theme.json"
+      },
+      {
+        "label": "Kells Light Bold",
+        "uiTheme": "vs",
+        "path": "./themes/kells-light-bold-color-theme.json"
+      }
+    ]
+  }
+}

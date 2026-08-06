@@ -1,4 +1,4 @@
-import {hsluvToRgb} from 'hsluv';
+import {hsluvToRgb, rgbToHsluv} from 'hsluv';
 
 export interface RGB {
     r: number;
@@ -38,6 +38,17 @@ export namespace RGB {
             throw new Error("bad hex string");
         }
     }
+    export function toHex(rgb: RGB): string {
+        const channel = (n: number) => Math.max(0, Math.min(255, Math.round(n))).toString(16).padStart(2, '0');
+        return `#${channel(rgb.r)}${channel(rgb.g)}${channel(rgb.b)}`;
+    }
+    export function lerp(a: RGB, b: RGB, t: number): RGB {
+        return <RGB>{
+            r: a.r + ((b.r - a.r) * t),
+            g: a.g + ((b.g - a.g) * t),
+            b: a.b + ((b.b - a.b) * t)
+        };
+    }
 }
 
 export interface HSLUV {
@@ -54,6 +65,30 @@ export namespace HSLUV {
             g: Math.round(rgb[1]*255.0),
             b: Math.round(rgb[2]*255.0)
         };
+    }
+    export function fromRgb(rgb: RGB): HSLUV {
+        const hsl = rgbToHsluv([rgb.r/255.0, rgb.g/255.0, rgb.b/255.0]);
+        return <HSLUV>{h: hsl[0], s: hsl[1], l: hsl[2]};
+    }
+    // Keep hue (and, unless overridden, saturation) but override perceptual
+    // lightness -- HSLUV's L is uniform across hues, so this is how
+    // Solarized itself keeps all 8 of its accent colors at consistent,
+    // guaranteed-legible contrast against its background regardless of hue.
+    // An explicit `s` also overrides saturation, keeping only the hue --
+    // used to produce a more saturated "Bold" variant from the same
+    // extracted colors as the desaturated "Subtle" one.
+    export function withLightness(rgb: RGB, l: number, s?: number): RGB {
+        const hsl = fromRgb(rgb);
+        return toRgb({h: hsl.h, s: s === undefined ? hsl.s : s, l});
+    }
+    // Keep hue and lightness, scale saturation by a factor (e.g. 0.75 = 25%
+    // less saturated). Unlike withLightness this doesn't touch L, since the
+    // point is to calm down a color's vividness without shifting how light
+    // or dark it reads (and, in turn, without touching contrast ratios that
+    // were tuned against its lightness).
+    export function desaturate(rgb: RGB, factor: number): RGB {
+        const hsl = fromRgb(rgb);
+        return toRgb({h: hsl.h, s: hsl.s * factor, l: hsl.l});
     }
 }
 

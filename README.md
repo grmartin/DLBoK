@@ -99,6 +99,20 @@ a distinct color.
 
 Writes `post-processing/palette-runs/sweep-results.{csv,json}`.
 
+#### Generate VSCode themes from the extracted palette: `generate-vscode-theme.ts`
+
+Turns `post-processing/palette.json` into an installable VSCode color theme
+extension under `theme/` — **Kells Light Subtle** and **Kells Light Bold** — built
+on Solarized Light's role structure (background, background-highlight, comments,
+body text, plus 8 accent hues) with each role's color swapped for the closest
+available manuscript ink/parchment tone (Bold additionally normalizes every
+accent's saturation to a shared, higher target; Subtle keeps each color's own,
+often quite muted, extracted saturation). See `theme/README.md` for the full
+role-mapping table and how to preview it — the short version is centuries-old
+ink/parchment pigments don't cover the full hue wheel Solarized's synthetic
+palette does, so a few accent roles (red, violet, magenta) are documented
+functional substitutes rather than true hue matches.
+
 #### `palette-runs/`
 
 Snapshots of `extract-palette.ts`/`extract-palette-sweep.ts` output kept for
