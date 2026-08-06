@@ -61,8 +61,15 @@ a small, perceptually-distinct color palette in two stages:
    HSLUV's circular hue) is swept into the background group and removed from further
    consideration.
 2. **Cluster what's left by perceptual distance.** The remaining bins are grouped with
-   Ward-linkage hierarchical clustering (`ml-hclust`) cut to `NUM_GROUPS` clusters, each
+   Ward-linkage hierarchical clustering (`ml-hclust`) into `NUM_GROUPS` clusters, each
    collapsed to a pixel-count-weighted centroid.
+3. **Fold the background-adjacent cluster back in.** Of those `NUM_GROUPS` clusters,
+   whichever one is perceptually nearest the background centroid (e.g. a parchment
+   highlight/glare tone) is merged into the background rather than kept as a
+   "distinct" color, so `NUM_GROUPS` is the *total* color count including background
+   (background + `NUM_GROUPS - 1` groups) rather than background-plus-`NUM_GROUPS`.
+   This is what actually solves the leak that hand-tuning `BACKGROUND_DELTA_E` alone
+   was chasing.
 
 Writes `post-processing/palette.json` (background + groups, each with hex/RGB, pixel
 share, and member-bin count) and an HTML swatch render to STDOUT. The Arango
@@ -70,10 +77,14 @@ aggregation query is slow (~70s over 64M `colorAssociations` rows), so its resul
 cached at `post-processing/.aggregated-colors-cache.json` (gitignored) and reused
 across runs — pass `--refresh` to force a re-fetch after re-importing data.
 
-`BACKGROUND_DELTA_E` is the key tunable: too small and background-adjacent shading
-leaks out as a fake "distinct" color group; too large and it starts absorbing
-genuinely distinct colors (e.g. a paper highlight/glare tone). See
-`extract-palette-sweep.ts` for how to find a good value.
+`BACKGROUND_DELTA_E` (optionally overridden as `node extract-palette.js <deltaE>`)
+still matters — it decides which bins are even eligible to be considered "near
+background" before the kick-out step runs — but is far less sensitive now that the
+kick-out step handles the main failure mode. Default is 16, picked by eye comparing
+14 through 18: background share climbs sensibly and all three rare accent colors
+(blue/gray/green) survive, whereas 18 starts costing an accent instead of just
+background-adjacent tan. See `extract-palette-sweep.ts` for how the range was
+narrowed down before the final visual call.
 
 #### Sweep `BACKGROUND_DELTA_E` to find where signal starts eroding: `extract-palette-sweep.ts`
 

@@ -11,9 +11,17 @@ const BIN_SIZE = 16;
 // pixels are dropped as noise before clustering.
 const NOISE_FLOOR_RATIO = 0.00004;
 
-const BACKGROUND_DELTA_E = 24;
+// 16 landed as the best-looking split after visually comparing 14-18 with
+// the background-kickout behavior below: background share climbs sensibly
+// and all three rare accent colors (blue/gray/green) are still intact,
+// vs. 18 where the kick-out starts eating an accent instead of just the
+// transitional tan/background-adjacent tones.
+const BACKGROUND_DELTA_E = Number(process.argv[2]) || 16;
 
-// Number of distinct (non-background) color groups to extract.
+// Total colors desired, background included (see computePalette in
+// shared/palette.ts: the cluster nearest the background centroid gets
+// folded back into it, so this no longer needs hand-tuning via
+// BACKGROUND_DELTA_E to avoid a background-adjacent group sneaking in).
 const NUM_GROUPS = 16;
 
 const toHex = (n: number) => Math.max(0, Math.min(255, Math.round(n))).toString(16).padStart(2, '0');

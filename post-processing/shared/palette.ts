@@ -30,6 +30,7 @@ export interface PaletteParams {
     binSize: number;
     noiseFloorRatio: number;
     backgroundDeltaE: number;
+    // Total colors desired, including background -- see computePalette.
     numGroups: number;
 }
 
@@ -103,13 +104,37 @@ export function groupByDistance(bins: Bin[], numGroups: number): PaletteEntry[] 
     return top.children.map((cluster) => weightedCentroid(cluster.indices().map((i) => bins[i])));
 }
 
+function mergeEntries(a: PaletteEntry, b: PaletteEntry): PaletteEntry {
+    const count = a.count + b.count;
+    return {
+        r: Math.round(((a.r * a.count) + (b.r * b.count)) / count),
+        g: Math.round(((a.g * a.count) + (b.g * b.count)) / count),
+        b: Math.round(((a.b * a.count) + (b.b * b.count)) / count),
+        count,
+        share: 0,
+        memberBins: a.memberBins + b.memberBins
+    };
+}
+
+// params.numGroups is the *total* colors desired, background included. The
+// remaining bins are clustered into numGroups groups, then whichever one is
+// perceptually nearest the background centroid is folded back into the
+// background rather than kept as a "distinct" color -- this is what the
+// deltaE sweep was chasing by hand (a background-adjacent shading/vignette
+// cluster sneaking into the top groups); doing it as a post-clustering step
+// means BACKGROUND_DELTA_E no longer has to be tuned to catch it.
 export function computePalette(bins: Bin[], totalPixels: number, params: Pick<PaletteParams, 'backgroundDeltaE' | 'numGroups'>): PaletteResult {
     const withShare = (e: PaletteEntry): PaletteEntry => ({...e, share: e.count / totalPixels});
 
     const {background: rawBackground, remaining} = extractBackground(bins, params.backgroundDeltaE);
-    const background = withShare(rawBackground);
 
-    const groups = groupByDistance(remaining, params.numGroups)
+    const clustered = groupByDistance(remaining, params.numGroups);
+    const backgroundLab = Lab.fromRgb(rawBackground);
+    const nearestToBackground = _.minBy(clustered, (g) => Lab.distance(Lab.fromRgb(g), backgroundLab));
+
+    const background = withShare(nearestToBackground ? mergeEntries(rawBackground, nearestToBackground) : rawBackground);
+    const groups = clustered
+        .filter((g) => g !== nearestToBackground)
         .map(withShare)
         .sort((a, b) => b.count - a.count);
 
