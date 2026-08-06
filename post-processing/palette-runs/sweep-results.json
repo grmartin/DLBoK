@@ -1,0 +1,2837 @@
+[
+  {
+    "deltaE": 4,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8bba7",
+    "isBackground": true,
+    "share": 0.10527311815956017,
+    "memberBins": 2,
+    "labDistanceToProbe": 0.9690839452021608
+  },
+  {
+    "deltaE": 4,
+    "probe": "highlight/cream",
+    "matchedHex": "#ded2c2",
+    "isBackground": false,
+    "share": 0.1775341129781201,
+    "memberBins": 25,
+    "labDistanceToProbe": 7.166971987893547
+  },
+  {
+    "deltaE": 4,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c6b9a6",
+    "isBackground": true,
+    "share": 0.14211788100156997,
+    "memberBins": 5,
+    "labDistanceToProbe": 1.1524772162440917
+  },
+  {
+    "deltaE": 4.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e4d8cb",
+    "isBackground": false,
+    "share": 0.08410639363800086,
+    "memberBins": 17,
+    "labDistanceToProbe": 5.176594637926537
+  },
+  {
+    "deltaE": 4.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 4.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7baa8",
+    "isBackground": true,
+    "share": 0.16657940597546717,
+    "memberBins": 6,
+    "labDistanceToProbe": 1.7094363298813864
+  },
+  {
+    "deltaE": 5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e3d7cb",
+    "isBackground": false,
+    "share": 0.08993475924259596,
+    "memberBins": 21,
+    "labDistanceToProbe": 5.654071867148103
+  },
+  {
+    "deltaE": 5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a4",
+    "isBackground": true,
+    "share": 0.2345540164792209,
+    "memberBins": 7,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e3d7cb",
+    "isBackground": false,
+    "share": 0.08993475924259596,
+    "memberBins": 21,
+    "labDistanceToProbe": 5.654071867148103
+  },
+  {
+    "deltaE": 5.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 5.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a5",
+    "isBackground": true,
+    "share": 0.39369011761607603,
+    "memberBins": 12,
+    "labDistanceToProbe": 0.5332126001918542
+  },
+  {
+    "deltaE": 6,
+    "probe": "highlight/cream",
+    "matchedHex": "#e3d7cb",
+    "isBackground": false,
+    "share": 0.08993475924259596,
+    "memberBins": 21,
+    "labDistanceToProbe": 5.654071867148103
+  },
+  {
+    "deltaE": 6,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8baa5",
+    "isBackground": true,
+    "share": 0.434966093434823,
+    "memberBins": 14,
+    "labDistanceToProbe": 0.3653748699981291
+  },
+  {
+    "deltaE": 6.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e2d7cc",
+    "isBackground": false,
+    "share": 0.08436160101417692,
+    "memberBins": 18,
+    "labDistanceToProbe": 5.9429849809524535
+  },
+  {
+    "deltaE": 6.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 6.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8baa5",
+    "isBackground": true,
+    "share": 0.4436898234137947,
+    "memberBins": 15,
+    "labDistanceToProbe": 0.3653748699981291
+  },
+  {
+    "deltaE": 7,
+    "probe": "highlight/cream",
+    "matchedHex": "#e4d7c8",
+    "isBackground": false,
+    "share": 0.10706090566111937,
+    "memberBins": 20,
+    "labDistanceToProbe": 5.2919266584174975
+  },
+  {
+    "deltaE": 7,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8baa5",
+    "isBackground": true,
+    "share": 0.4436898234137947,
+    "memberBins": 15,
+    "labDistanceToProbe": 0.3653748699981291
+  },
+  {
+    "deltaE": 7.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e4d7c8",
+    "isBackground": false,
+    "share": 0.10706090566111937,
+    "memberBins": 20,
+    "labDistanceToProbe": 5.2919266584174975
+  },
+  {
+    "deltaE": 7.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 7.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8baa5",
+    "isBackground": true,
+    "share": 0.4436898234137947,
+    "memberBins": 15,
+    "labDistanceToProbe": 0.3653748699981291
+  },
+  {
+    "deltaE": 8,
+    "probe": "highlight/cream",
+    "matchedHex": "#e4d7c8",
+    "isBackground": false,
+    "share": 0.10706090566111937,
+    "memberBins": 20,
+    "labDistanceToProbe": 5.2919266584174975
+  },
+  {
+    "deltaE": 8,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8baa6",
+    "isBackground": true,
+    "share": 0.4464649041862735,
+    "memberBins": 16,
+    "labDistanceToProbe": 0.6675159132006359
+  },
+  {
+    "deltaE": 8.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e3d7c8",
+    "isBackground": false,
+    "share": 0.11011419049323566,
+    "memberBins": 23,
+    "labDistanceToProbe": 5.3810875440390795
+  },
+  {
+    "deltaE": 8.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 8.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8baa6",
+    "isBackground": true,
+    "share": 0.45826960409925427,
+    "memberBins": 18,
+    "labDistanceToProbe": 0.6675159132006359
+  },
+  {
+    "deltaE": 9,
+    "probe": "highlight/cream",
+    "matchedHex": "#e3d7c9",
+    "isBackground": false,
+    "share": 0.10420287691035875,
+    "memberBins": 22,
+    "labDistanceToProbe": 5.424010584487937
+  },
+  {
+    "deltaE": 9,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9,
+    "probe": "gray-accent",
+    "matchedHex": "#7d7e7a",
+    "isBackground": false,
+    "share": 0.002891715242900178,
+    "memberBins": 16,
+    "labDistanceToProbe": 4.210119682063051
+  },
+  {
+    "deltaE": 9.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c6b8a3",
+    "isBackground": true,
+    "share": 0.5465667279410817,
+    "memberBins": 23,
+    "labDistanceToProbe": 0.3657369239426137
+  },
+  {
+    "deltaE": 9.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e6d9ca",
+    "isBackground": false,
+    "share": 0.0861688813174642,
+    "memberBins": 21,
+    "labDistanceToProbe": 4.585356075682552
+  },
+  {
+    "deltaE": 9.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9.5,
+    "probe": "blue-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 4.8238399449762
+  },
+  {
+    "deltaE": 9.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 9.5,
+    "probe": "gray-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 11.182644481764846
+  },
+  {
+    "deltaE": 10,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a4",
+    "isBackground": true,
+    "share": 0.5686808539291212,
+    "memberBins": 26,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10,
+    "probe": "highlight/cream",
+    "matchedHex": "#e8dbcb",
+    "isBackground": false,
+    "share": 0.07192571226074479,
+    "memberBins": 19,
+    "labDistanceToProbe": 3.8799441373891623
+  },
+  {
+    "deltaE": 10,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10,
+    "probe": "blue-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 4.8238399449762
+  },
+  {
+    "deltaE": 10,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10,
+    "probe": "gray-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 11.182644481764846
+  },
+  {
+    "deltaE": 10.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a4",
+    "isBackground": true,
+    "share": 0.572154598487357,
+    "memberBins": 28,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#e9dccb",
+    "isBackground": false,
+    "share": 0.06890703121224899,
+    "memberBins": 18,
+    "labDistanceToProbe": 3.5961146221491878
+  },
+  {
+    "deltaE": 10.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10.5,
+    "probe": "blue-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 4.8238399449762
+  },
+  {
+    "deltaE": 10.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 10.5,
+    "probe": "gray-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 11.182644481764846
+  },
+  {
+    "deltaE": 11,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a4",
+    "isBackground": true,
+    "share": 0.601850720995415,
+    "memberBins": 31,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11,
+    "probe": "highlight/cream",
+    "matchedHex": "#eadecf",
+    "isBackground": false,
+    "share": 0.0546389135444862,
+    "memberBins": 17,
+    "labDistanceToProbe": 2.932166520987123
+  },
+  {
+    "deltaE": 11,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11,
+    "probe": "blue-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 4.8238399449762
+  },
+  {
+    "deltaE": 11,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11,
+    "probe": "gray-accent",
+    "matchedHex": "#586571",
+    "isBackground": false,
+    "share": 0.002810534946836503,
+    "memberBins": 22,
+    "labDistanceToProbe": 11.182644481764846
+  },
+  {
+    "deltaE": 11.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c8baa5",
+    "isBackground": true,
+    "share": 0.6380358543102103,
+    "memberBins": 38,
+    "labDistanceToProbe": 0.3653748699981291
+  },
+  {
+    "deltaE": 11.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#ede2d6",
+    "isBackground": false,
+    "share": 0.030793057869525773,
+    "memberBins": 17,
+    "labDistanceToProbe": 2.627755143644673
+  },
+  {
+    "deltaE": 11.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 11.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b8a3",
+    "isBackground": true,
+    "share": 0.6681464401627529,
+    "memberBins": 42,
+    "labDistanceToProbe": 0.4927059399102614
+  },
+  {
+    "deltaE": 12,
+    "probe": "highlight/cream",
+    "matchedHex": "#ede2d6",
+    "isBackground": false,
+    "share": 0.030793057869525773,
+    "memberBins": 17,
+    "labDistanceToProbe": 2.627755143644673
+  },
+  {
+    "deltaE": 12,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b8a3",
+    "isBackground": true,
+    "share": 0.6683359620990786,
+    "memberBins": 43,
+    "labDistanceToProbe": 0.4927059399102614
+  },
+  {
+    "deltaE": 12.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#eee2d6",
+    "isBackground": false,
+    "share": 0.03055718623932111,
+    "memberBins": 15,
+    "labDistanceToProbe": 2.4981263643351728
+  },
+  {
+    "deltaE": 12.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 12.5,
+    "probe": "gray-accent",
+    "matchedHex": "#8b877f",
+    "isBackground": false,
+    "share": 0.00528578876688981,
+    "memberBins": 20,
+    "labDistanceToProbe": 8.699120021667973
+  },
+  {
+    "deltaE": 13,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b8a3",
+    "isBackground": true,
+    "share": 0.6683823117929576,
+    "memberBins": 44,
+    "labDistanceToProbe": 0.4927059399102614
+  },
+  {
+    "deltaE": 13,
+    "probe": "highlight/cream",
+    "matchedHex": "#eee2d6",
+    "isBackground": false,
+    "share": 0.03055718623932111,
+    "memberBins": 15,
+    "labDistanceToProbe": 2.4981263643351728
+  },
+  {
+    "deltaE": 13,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a3",
+    "isBackground": true,
+    "share": 0.6691385170157286,
+    "memberBins": 45,
+    "labDistanceToProbe": 0.5330212580345428
+  },
+  {
+    "deltaE": 13.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#eee2d5",
+    "isBackground": false,
+    "share": 0.03157409328544614,
+    "memberBins": 19,
+    "labDistanceToProbe": 2.1134047762015067
+  },
+  {
+    "deltaE": 13.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 13.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a4",
+    "isBackground": true,
+    "share": 0.6802011746291629,
+    "memberBins": 49,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14,
+    "probe": "highlight/cream",
+    "matchedHex": "#f3e6d6",
+    "isBackground": false,
+    "share": 0.02085851351068766,
+    "memberBins": 16,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c7b9a4",
+    "isBackground": true,
+    "share": 0.6875401930143054,
+    "memberBins": 51,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#f3e6d6",
+    "isBackground": false,
+    "share": 0.01934736523532696,
+    "memberBins": 15,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14.5,
+    "probe": "green-accent",
+    "matchedHex": "#6c7e6a",
+    "isBackground": false,
+    "share": 0.0013879958121579764,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 14.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c5b7a1",
+    "isBackground": true,
+    "share": 0.7361074129320083,
+    "memberBins": 59,
+    "labDistanceToProbe": 0.9367372732843607
+  },
+  {
+    "deltaE": 15,
+    "probe": "highlight/cream",
+    "matchedHex": "#f4e8d8",
+    "isBackground": false,
+    "share": 0.018079117461358964,
+    "memberBins": 10,
+    "labDistanceToProbe": 0.730157245566553
+  },
+  {
+    "deltaE": 15,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15,
+    "probe": "green-accent",
+    "matchedHex": "#6a7c69",
+    "isBackground": false,
+    "share": 0.0013317805840051197,
+    "memberBins": 13,
+    "labDistanceToProbe": 0.9416527413838884
+  },
+  {
+    "deltaE": 15,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c6b7a1",
+    "isBackground": true,
+    "share": 0.7408284549564413,
+    "memberBins": 62,
+    "labDistanceToProbe": 0.9729956487045026
+  },
+  {
+    "deltaE": 15.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#f6e9d9",
+    "isBackground": false,
+    "share": 0.014115654450370363,
+    "memberBins": 9,
+    "labDistanceToProbe": 1.0521082780474045
+  },
+  {
+    "deltaE": 15.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 15.5,
+    "probe": "green-accent",
+    "matchedHex": "#6a7c69",
+    "isBackground": false,
+    "share": 0.0013317805840051197,
+    "memberBins": 13,
+    "labDistanceToProbe": 0.9416527413838884
+  },
+  {
+    "deltaE": 15.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c6b7a1",
+    "isBackground": true,
+    "share": 0.7472455510412432,
+    "memberBins": 66,
+    "labDistanceToProbe": 0.9729956487045026
+  },
+  {
+    "deltaE": 16,
+    "probe": "highlight/cream",
+    "matchedHex": "#f6ebdd",
+    "isBackground": false,
+    "share": 0.010964923855271043,
+    "memberBins": 9,
+    "labDistanceToProbe": 2.103628687878984
+  },
+  {
+    "deltaE": 16,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16,
+    "probe": "green-accent",
+    "matchedHex": "#6a7c69",
+    "isBackground": false,
+    "share": 0.0013317805840051197,
+    "memberBins": 13,
+    "labDistanceToProbe": 0.9416527413838884
+  },
+  {
+    "deltaE": 16,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c6b7a1",
+    "isBackground": true,
+    "share": 0.7472455510412432,
+    "memberBins": 66,
+    "labDistanceToProbe": 0.9729956487045026
+  },
+  {
+    "deltaE": 16.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#f6ebdd",
+    "isBackground": false,
+    "share": 0.010964923855271043,
+    "memberBins": 9,
+    "labDistanceToProbe": 2.103628687878984
+  },
+  {
+    "deltaE": 16.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 16.5,
+    "probe": "green-accent",
+    "matchedHex": "#6a7c69",
+    "isBackground": false,
+    "share": 0.0013317805840051197,
+    "memberBins": 13,
+    "labDistanceToProbe": 0.9416527413838884
+  },
+  {
+    "deltaE": 16.5,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c6b7a2",
+    "isBackground": true,
+    "share": 0.7570966547890502,
+    "memberBins": 68,
+    "labDistanceToProbe": 0.7676004814832684
+  },
+  {
+    "deltaE": 17,
+    "probe": "highlight/cream",
+    "matchedHex": "#f7eee3",
+    "isBackground": false,
+    "share": 0.005397813883395245,
+    "memberBins": 8,
+    "labDistanceToProbe": 3.998799633811543
+  },
+  {
+    "deltaE": 17,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17,
+    "probe": "green-accent",
+    "matchedHex": "#6a7c69",
+    "isBackground": false,
+    "share": 0.0013317805840051197,
+    "memberBins": 13,
+    "labDistanceToProbe": 0.9416527413838884
+  },
+  {
+    "deltaE": 17,
+    "probe": "gray-accent",
+    "matchedHex": "#757b7d",
+    "isBackground": false,
+    "share": 0.0018346223152696211,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c6b7a1",
+    "isBackground": true,
+    "share": 0.7592982766965511,
+    "memberBins": 71,
+    "labDistanceToProbe": 0.9729956487045026
+  },
+  {
+    "deltaE": 17.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#f7eee3",
+    "isBackground": false,
+    "share": 0.005397813883395245,
+    "memberBins": 8,
+    "labDistanceToProbe": 3.998799633811543
+  },
+  {
+    "deltaE": 17.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 17.5,
+    "probe": "green-accent",
+    "matchedHex": "#6a7970",
+    "isBackground": false,
+    "share": 0.00245955539954477,
+    "memberBins": 24,
+    "labDistanceToProbe": 6.687090682637408
+  },
+  {
+    "deltaE": 17.5,
+    "probe": "gray-accent",
+    "matchedHex": "#6a7970",
+    "isBackground": false,
+    "share": 0.00245955539954477,
+    "memberBins": 24,
+    "labDistanceToProbe": 7.700626850038316
+  },
+  {
+    "deltaE": 18,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c5b6a1",
+    "isBackground": true,
+    "share": 0.7714154478025234,
+    "memberBins": 74,
+    "labDistanceToProbe": 1.0974327261054204
+  },
+  {
+    "deltaE": 18,
+    "probe": "highlight/cream",
+    "matchedHex": "#f7eee5",
+    "isBackground": false,
+    "share": 0.005174005137026198,
+    "memberBins": 6,
+    "labDistanceToProbe": 4.759752417480088
+  },
+  {
+    "deltaE": 18,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 18,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 18,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 18,
+    "probe": "green-accent",
+    "matchedHex": "#748670",
+    "isBackground": false,
+    "share": 0.0007713476873663433,
+    "memberBins": 9,
+    "labDistanceToProbe": 3.254466446207095
+  },
+  {
+    "deltaE": 18,
+    "probe": "gray-accent",
+    "matchedHex": "#767a74",
+    "isBackground": false,
+    "share": 0.0032821165006353048,
+    "memberBins": 19,
+    "labDistanceToProbe": 4.732571248601922
+  },
+  {
+    "deltaE": 18.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c5b6a1",
+    "isBackground": true,
+    "share": 0.7723652133337875,
+    "memberBins": 77,
+    "labDistanceToProbe": 1.0974327261054204
+  },
+  {
+    "deltaE": 18.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#faf1e5",
+    "isBackground": false,
+    "share": 0.004282848950369922,
+    "memberBins": 4,
+    "labDistanceToProbe": 4.474451047746368
+  },
+  {
+    "deltaE": 18.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 18.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 18.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 18.5,
+    "probe": "green-accent",
+    "matchedHex": "#748670",
+    "isBackground": false,
+    "share": 0.0007713476873663433,
+    "memberBins": 9,
+    "labDistanceToProbe": 3.254466446207095
+  },
+  {
+    "deltaE": 18.5,
+    "probe": "gray-accent",
+    "matchedHex": "#767a74",
+    "isBackground": false,
+    "share": 0.0032821165006353048,
+    "memberBins": 19,
+    "labDistanceToProbe": 4.732571248601922
+  },
+  {
+    "deltaE": 19,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c5b6a1",
+    "isBackground": true,
+    "share": 0.7788426567515023,
+    "memberBins": 81,
+    "labDistanceToProbe": 1.0974327261054204
+  },
+  {
+    "deltaE": 19,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf5e5",
+    "isBackground": false,
+    "share": 0.0025123239872423117,
+    "memberBins": 3,
+    "labDistanceToProbe": 5.207464802429043
+  },
+  {
+    "deltaE": 19,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 19,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 19,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 19,
+    "probe": "green-accent",
+    "matchedHex": "#687b67",
+    "isBackground": false,
+    "share": 0.0012584731102229139,
+    "memberBins": 12,
+    "labDistanceToProbe": 1.3309650433268823
+  },
+  {
+    "deltaE": 19,
+    "probe": "gray-accent",
+    "matchedHex": "#7b7c78",
+    "isBackground": false,
+    "share": 0.0027216836039965285,
+    "memberBins": 15,
+    "labDistanceToProbe": 4.018694464541217
+  },
+  {
+    "deltaE": 19.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c5b6a1",
+    "isBackground": true,
+    "share": 0.7791281873369738,
+    "memberBins": 83,
+    "labDistanceToProbe": 1.0974327261054204
+  },
+  {
+    "deltaE": 19.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf5e5",
+    "isBackground": false,
+    "share": 0.0025123239872423117,
+    "memberBins": 3,
+    "labDistanceToProbe": 5.207464802429043
+  },
+  {
+    "deltaE": 19.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 19.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 19.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 19.5,
+    "probe": "green-accent",
+    "matchedHex": "#687b67",
+    "isBackground": false,
+    "share": 0.0012584731102229139,
+    "memberBins": 12,
+    "labDistanceToProbe": 1.3309650433268823
+  },
+  {
+    "deltaE": 19.5,
+    "probe": "gray-accent",
+    "matchedHex": "#7b7c78",
+    "isBackground": false,
+    "share": 0.0027216836039965285,
+    "memberBins": 15,
+    "labDistanceToProbe": 4.018694464541217
+  },
+  {
+    "deltaE": 20,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c5b6a1",
+    "isBackground": true,
+    "share": 0.7792122508046618,
+    "memberBins": 84,
+    "labDistanceToProbe": 1.0974327261054204
+  },
+  {
+    "deltaE": 20,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf5e5",
+    "isBackground": false,
+    "share": 0.0025123239872423117,
+    "memberBins": 3,
+    "labDistanceToProbe": 5.207464802429043
+  },
+  {
+    "deltaE": 20,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 20,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 20,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 20,
+    "probe": "green-accent",
+    "matchedHex": "#667966",
+    "isBackground": false,
+    "share": 0.0011744096425348478,
+    "memberBins": 11,
+    "labDistanceToProbe": 2.1308925089131567
+  },
+  {
+    "deltaE": 20,
+    "probe": "gray-accent",
+    "matchedHex": "#7b7c78",
+    "isBackground": false,
+    "share": 0.0027216836039965285,
+    "memberBins": 15,
+    "labDistanceToProbe": 4.018694464541217
+  },
+  {
+    "deltaE": 20.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8060182647609433,
+    "memberBins": 87,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 20.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf5ea",
+    "isBackground": false,
+    "share": 0.001841073407307222,
+    "memberBins": 2,
+    "labDistanceToProbe": 5.944969727013082
+  },
+  {
+    "deltaE": 20.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 20.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 20.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 20.5,
+    "probe": "green-accent",
+    "matchedHex": "#667966",
+    "isBackground": false,
+    "share": 0.0011744096425348478,
+    "memberBins": 11,
+    "labDistanceToProbe": 2.1308925089131567
+  },
+  {
+    "deltaE": 20.5,
+    "probe": "gray-accent",
+    "matchedHex": "#7b7c78",
+    "isBackground": false,
+    "share": 0.0027216836039965285,
+    "memberBins": 15,
+    "labDistanceToProbe": 4.018694464541217
+  },
+  {
+    "deltaE": 21,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8089842670189965,
+    "memberBins": 90,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 21,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf5ea",
+    "isBackground": false,
+    "share": 0.001841073407307222,
+    "memberBins": 2,
+    "labDistanceToProbe": 5.944969727013082
+  },
+  {
+    "deltaE": 21,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 21,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 21,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 21,
+    "probe": "green-accent",
+    "matchedHex": "#667966",
+    "isBackground": false,
+    "share": 0.0011744096425348478,
+    "memberBins": 11,
+    "labDistanceToProbe": 2.1308925089131567
+  },
+  {
+    "deltaE": 21,
+    "probe": "gray-accent",
+    "matchedHex": "#71787a",
+    "isBackground": false,
+    "share": 0.0016645906763659718,
+    "memberBins": 13,
+    "labDistanceToProbe": 1.329481870164318
+  },
+  {
+    "deltaE": 21.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8105682487388055,
+    "memberBins": 93,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 21.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf8f4",
+    "isBackground": false,
+    "share": 0.0003636270076795582,
+    "memberBins": 1,
+    "labDistanceToProbe": 9.115544693875194
+  },
+  {
+    "deltaE": 21.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 21.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 21.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 21.5,
+    "probe": "green-accent",
+    "matchedHex": "#667966",
+    "isBackground": false,
+    "share": 0.0011744096425348478,
+    "memberBins": 11,
+    "labDistanceToProbe": 2.1308925089131567
+  },
+  {
+    "deltaE": 21.5,
+    "probe": "gray-accent",
+    "matchedHex": "#707779",
+    "isBackground": false,
+    "share": 0.0016214783345195223,
+    "memberBins": 12,
+    "labDistanceToProbe": 1.7136818733092403
+  },
+  {
+    "deltaE": 22,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8118099426416385,
+    "memberBins": 94,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 22,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf8f4",
+    "isBackground": false,
+    "share": 0.0003636270076795582,
+    "memberBins": 1,
+    "labDistanceToProbe": 9.115544693875194
+  },
+  {
+    "deltaE": 22,
+    "probe": "ink-dark",
+    "matchedHex": "#24170d",
+    "isBackground": false,
+    "share": 0.011509421853371287,
+    "memberBins": 10,
+    "labDistanceToProbe": 5.1478880120707515
+  },
+  {
+    "deltaE": 22,
+    "probe": "ink-mid",
+    "matchedHex": "#402e1f",
+    "isBackground": false,
+    "share": 0.03797273406668481,
+    "memberBins": 16,
+    "labDistanceToProbe": 5.936265444077569
+  },
+  {
+    "deltaE": 22,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 22,
+    "probe": "green-accent",
+    "matchedHex": "#647662",
+    "isBackground": false,
+    "share": 0.0013284512881698316,
+    "memberBins": 13,
+    "labDistanceToProbe": 3.1818199887140306
+  },
+  {
+    "deltaE": 22,
+    "probe": "gray-accent",
+    "matchedHex": "#707779",
+    "isBackground": false,
+    "share": 0.0016214783345195223,
+    "memberBins": 12,
+    "labDistanceToProbe": 1.7136818733092403
+  },
+  {
+    "deltaE": 22.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8118099426416385,
+    "memberBins": 94,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 22.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf8f4",
+    "isBackground": false,
+    "share": 0.0003636270076795582,
+    "memberBins": 1,
+    "labDistanceToProbe": 9.115544693875194
+  },
+  {
+    "deltaE": 22.5,
+    "probe": "ink-dark",
+    "matchedHex": "#24170d",
+    "isBackground": false,
+    "share": 0.011509421853371287,
+    "memberBins": 10,
+    "labDistanceToProbe": 5.1478880120707515
+  },
+  {
+    "deltaE": 22.5,
+    "probe": "ink-mid",
+    "matchedHex": "#402e1f",
+    "isBackground": false,
+    "share": 0.03797273406668481,
+    "memberBins": 16,
+    "labDistanceToProbe": 5.936265444077569
+  },
+  {
+    "deltaE": 22.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 22.5,
+    "probe": "green-accent",
+    "matchedHex": "#647662",
+    "isBackground": false,
+    "share": 0.0013284512881698316,
+    "memberBins": 13,
+    "labDistanceToProbe": 3.1818199887140306
+  },
+  {
+    "deltaE": 22.5,
+    "probe": "gray-accent",
+    "matchedHex": "#707779",
+    "isBackground": false,
+    "share": 0.0016214783345195223,
+    "memberBins": 12,
+    "labDistanceToProbe": 1.7136818733092403
+  },
+  {
+    "deltaE": 23,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8122363937407812,
+    "memberBins": 96,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 23,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf8f4",
+    "isBackground": false,
+    "share": 0.0003636270076795582,
+    "memberBins": 1,
+    "labDistanceToProbe": 9.115544693875194
+  },
+  {
+    "deltaE": 23,
+    "probe": "ink-dark",
+    "matchedHex": "#24170d",
+    "isBackground": false,
+    "share": 0.011509421853371287,
+    "memberBins": 10,
+    "labDistanceToProbe": 5.1478880120707515
+  },
+  {
+    "deltaE": 23,
+    "probe": "ink-mid",
+    "matchedHex": "#412e20",
+    "isBackground": false,
+    "share": 0.03821877210563129,
+    "memberBins": 18,
+    "labDistanceToProbe": 5.804682468298024
+  },
+  {
+    "deltaE": 23,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 23,
+    "probe": "green-accent",
+    "matchedHex": "#647662",
+    "isBackground": false,
+    "share": 0.0013284512881698316,
+    "memberBins": 13,
+    "labDistanceToProbe": 3.1818199887140306
+  },
+  {
+    "deltaE": 23,
+    "probe": "gray-accent",
+    "matchedHex": "#707779",
+    "isBackground": false,
+    "share": 0.0016214783345195223,
+    "memberBins": 12,
+    "labDistanceToProbe": 1.7136818733092403
+  },
+  {
+    "deltaE": 23.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8155874455548286,
+    "memberBins": 99,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 23.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#fdf8f4",
+    "isBackground": false,
+    "share": 0.0003636270076795582,
+    "memberBins": 1,
+    "labDistanceToProbe": 9.115544693875194
+  },
+  {
+    "deltaE": 23.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 23.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 23.5,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 23.5,
+    "probe": "green-accent",
+    "matchedHex": "#637561",
+    "isBackground": false,
+    "share": 0.001274607637718686,
+    "memberBins": 12,
+    "labDistanceToProbe": 3.582271135810352
+  },
+  {
+    "deltaE": 23.5,
+    "probe": "gray-accent",
+    "matchedHex": "#697377",
+    "isBackground": false,
+    "share": 0.0010846624736932011,
+    "memberBins": 10,
+    "labDistanceToProbe": 3.9431275535399974
+  },
+  {
+    "deltaE": 24,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8166120186391181,
+    "memberBins": 103,
+    "labDistanceToProbe": 1.5827397036564543
+  },
+  {
+    "deltaE": 24,
+    "probe": "highlight/cream",
+    "matchedHex": "#c4b59f",
+    "isBackground": true,
+    "share": 0.8166120186391181,
+    "memberBins": 103,
+    "labDistanceToProbe": 17.93978560837406
+  },
+  {
+    "deltaE": 24,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 24,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 24,
+    "probe": "blue-accent",
+    "matchedHex": "#4e5c6d",
+    "isBackground": false,
+    "share": 0.001725872473143302,
+    "memberBins": 12,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 24,
+    "probe": "green-accent",
+    "matchedHex": "#637561",
+    "isBackground": false,
+    "share": 0.001274607637718686,
+    "memberBins": 12,
+    "labDistanceToProbe": 3.582271135810352
+  },
+  {
+    "deltaE": 24,
+    "probe": "gray-accent",
+    "matchedHex": "#6c7477",
+    "isBackground": false,
+    "share": 0.0013125693378135085,
+    "memberBins": 11,
+    "labDistanceToProbe": 3.072115579844432
+  },
+  {
+    "deltaE": 24.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c3b49e",
+    "isBackground": true,
+    "share": 0.825796924780811,
+    "memberBins": 107,
+    "labDistanceToProbe": 1.9208077966690127
+  },
+  {
+    "deltaE": 24.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#c3b49e",
+    "isBackground": true,
+    "share": 0.825796924780811,
+    "memberBins": 107,
+    "labDistanceToProbe": 18.30143342101307
+  },
+  {
+    "deltaE": 24.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 24.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 24.5,
+    "probe": "blue-accent",
+    "matchedHex": "#596b7f",
+    "isBackground": false,
+    "share": 0.0008761686312696738,
+    "memberBins": 9,
+    "labDistanceToProbe": 6.271925126201914
+  },
+  {
+    "deltaE": 24.5,
+    "probe": "green-accent",
+    "matchedHex": "#637662",
+    "isBackground": false,
+    "share": 0.0009859173336981767,
+    "memberBins": 9,
+    "labDistanceToProbe": 3.288877558652703
+  },
+  {
+    "deltaE": 24.5,
+    "probe": "gray-accent",
+    "matchedHex": "#697273",
+    "isBackground": false,
+    "share": 0.0011857577259106631,
+    "memberBins": 9,
+    "labDistanceToProbe": 4.082836448131409
+  },
+  {
+    "deltaE": 25,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c3b49e",
+    "isBackground": true,
+    "share": 0.8261597250097805,
+    "memberBins": 110,
+    "labDistanceToProbe": 1.9208077966690127
+  },
+  {
+    "deltaE": 25,
+    "probe": "highlight/cream",
+    "matchedHex": "#c3b49e",
+    "isBackground": true,
+    "share": 0.8261597250097805,
+    "memberBins": 110,
+    "labDistanceToProbe": 18.30143342101307
+  },
+  {
+    "deltaE": 25,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 25,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 25,
+    "probe": "blue-accent",
+    "matchedHex": "#596b7f",
+    "isBackground": false,
+    "share": 0.0008761686312696738,
+    "memberBins": 9,
+    "labDistanceToProbe": 6.271925126201914
+  },
+  {
+    "deltaE": 25,
+    "probe": "green-accent",
+    "matchedHex": "#637662",
+    "isBackground": false,
+    "share": 0.0009859173336981767,
+    "memberBins": 9,
+    "labDistanceToProbe": 3.288877558652703
+  },
+  {
+    "deltaE": 25,
+    "probe": "gray-accent",
+    "matchedHex": "#697273",
+    "isBackground": false,
+    "share": 0.0011857577259106631,
+    "memberBins": 9,
+    "labDistanceToProbe": 4.082836448131409
+  },
+  {
+    "deltaE": 25.5,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c3b49e",
+    "isBackground": true,
+    "share": 0.8286227638988534,
+    "memberBins": 113,
+    "labDistanceToProbe": 1.9208077966690127
+  },
+  {
+    "deltaE": 25.5,
+    "probe": "highlight/cream",
+    "matchedHex": "#c3b49e",
+    "isBackground": true,
+    "share": 0.8286227638988534,
+    "memberBins": 113,
+    "labDistanceToProbe": 18.30143342101307
+  },
+  {
+    "deltaE": 25.5,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 25.5,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 25.5,
+    "probe": "blue-accent",
+    "matchedHex": "#596b7f",
+    "isBackground": false,
+    "share": 0.0008761686312696738,
+    "memberBins": 9,
+    "labDistanceToProbe": 6.271925126201914
+  },
+  {
+    "deltaE": 25.5,
+    "probe": "green-accent",
+    "matchedHex": "#5e705d",
+    "isBackground": false,
+    "share": 0.0010289942575038254,
+    "memberBins": 10,
+    "labDistanceToProbe": 5.572445438828047
+  },
+  {
+    "deltaE": 25.5,
+    "probe": "gray-accent",
+    "matchedHex": "#697273",
+    "isBackground": false,
+    "share": 0.0011857577259106631,
+    "memberBins": 9,
+    "labDistanceToProbe": 4.082836448131409
+  },
+  {
+    "deltaE": 26,
+    "probe": "background (deltaE=14 anchor)",
+    "matchedHex": "#c3b39d",
+    "isBackground": true,
+    "share": 0.8347989969140036,
+    "memberBins": 117,
+    "labDistanceToProbe": 2.307918219863214
+  },
+  {
+    "deltaE": 26,
+    "probe": "highlight/cream",
+    "matchedHex": "#c3b39d",
+    "isBackground": true,
+    "share": 0.8347989969140036,
+    "memberBins": 117,
+    "labDistanceToProbe": 18.610474345467054
+  },
+  {
+    "deltaE": 26,
+    "probe": "ink-dark",
+    "matchedHex": "#2e1e11",
+    "isBackground": false,
+    "share": 0.02254338334083909,
+    "memberBins": 14,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 26,
+    "probe": "ink-mid",
+    "matchedHex": "#4e3b2c",
+    "isBackground": false,
+    "share": 0.057251592224911045,
+    "memberBins": 17,
+    "labDistanceToProbe": 0
+  },
+  {
+    "deltaE": 26,
+    "probe": "blue-accent",
+    "matchedHex": "#596b7f",
+    "isBackground": false,
+    "share": 0.0008761686312696738,
+    "memberBins": 9,
+    "labDistanceToProbe": 6.271925126201914
+  },
+  {
+    "deltaE": 26,
+    "probe": "green-accent",
+    "matchedHex": "#5e705d",
+    "isBackground": false,
+    "share": 0.0010289942575038254,
+    "memberBins": 10,
+    "labDistanceToProbe": 5.572445438828047
+  },
+  {
+    "deltaE": 26,
+    "probe": "gray-accent",
+    "matchedHex": "#687172",
+    "isBackground": false,
+    "share": 0.0011028812992264101,
+    "memberBins": 8,
+    "labDistanceToProbe": 4.464646060366736
+  }
+]

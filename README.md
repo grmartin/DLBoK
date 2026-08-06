@@ -38,6 +38,63 @@ Process the JPEG image data in to protobuff intermediate files.
 
 Import all of the protobuff data in to the graph database (ArangoDB) for future processing.
 
+> Note: these scripts, and the `extract-palette*` scripts below, all read connection
+> settings from `post-processing/settings.js` (gitignored, not checked in). It should
+> export:
+> ```js
+> module.exports.arango = {host: 'http://your-arango-host:8529', db: 'your-db', user: '...', pass: '...'};
+> ```
+
+#### Extract a background-aware color palette directly from ArangoDB: `extract-palette.ts`
+
+Queries `colorAssociations` directly (no manual JSON export step needed) and produces
+a small, perceptually-distinct color palette in two stages:
+
+1. **Isolate the background/parchment color.** Naively clustering all ~700k distinct
+   colors observed treats JPEG noise and paper-texture variation as real signal, and
+   count-weighted clustering lets a handful of dominant page-background shades crowd
+   out rare-but-visually-distinct colors (e.g. a single blue or green accent). Instead,
+   colors are first quantized into RGB bins (`BIN_SIZE`) and rare bins are dropped as
+   noise (`NOISE_FLOOR_RATIO`), then the single most prominent bin is used as a seed:
+   every bin within `BACKGROUND_DELTA_E` of it in CIE Lab space (see
+   `shared/colors.ts`'s `Lab` namespace — Cartesian and perceptually uniform, unlike
+   HSLUV's circular hue) is swept into the background group and removed from further
+   consideration.
+2. **Cluster what's left by perceptual distance.** The remaining bins are grouped with
+   Ward-linkage hierarchical clustering (`ml-hclust`) cut to `NUM_GROUPS` clusters, each
+   collapsed to a pixel-count-weighted centroid.
+
+Writes `post-processing/palette.json` (background + groups, each with hex/RGB, pixel
+share, and member-bin count) and an HTML swatch render to STDOUT. The Arango
+aggregation query is slow (~70s over 64M `colorAssociations` rows), so its result is
+cached at `post-processing/.aggregated-colors-cache.json` (gitignored) and reused
+across runs — pass `--refresh` to force a re-fetch after re-importing data.
+
+`BACKGROUND_DELTA_E` is the key tunable: too small and background-adjacent shading
+leaks out as a fake "distinct" color group; too large and it starts absorbing
+genuinely distinct colors (e.g. a paper highlight/glare tone). See
+`extract-palette-sweep.ts` for how to find a good value.
+
+#### Sweep `BACKGROUND_DELTA_E` to find where signal starts eroding: `extract-palette-sweep.ts`
+
+Runs the same background/clustering logic across a range of `BACKGROUND_DELTA_E`
+values (reusing the cached fetch, so this is fast — a few seconds for dozens of
+values) and tracks a fixed set of reference "probe" colors (background, ink tones,
+known accent colors) across the sweep: for each `deltaE`, which cluster ends up
+closest to each probe, and what pixel share that cluster has. This turns "does this
+value look right?" from eyeballing single runs into watching a probe's share curve
+for the point it collapses into the background cluster — i.e. where it stops being
+a distinct color.
+
+Writes `post-processing/palette-runs/sweep-results.{csv,json}`.
+
+#### `palette-runs/`
+
+Snapshots of `extract-palette.ts`/`extract-palette-sweep.ts` output kept for
+comparing different `BACKGROUND_DELTA_E` settings, plus `all-colors.json`, a flat
+array combining every saved run's background + group colors (tagged with `run`,
+`backgroundDeltaE`, and `role`) for ad-hoc analysis.
+
 #### Requiring `color_data_out.json`
 
 Some processing files require dumps from the resulting Arango DB. This can be exported from Arango via the JSON export functionality using the following AQL:
